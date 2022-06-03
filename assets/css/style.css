@@ -1,13 +1,61 @@
-.container-1{
-    display:flex;
-    flex-direction: row;
-    background: linear-gradient(45deg, red, blue);
-    justify-content: space-around;
+body {
+    /* placeholder color */
+    background-image: url("/assets/images/Kanto.png");
+    background-size:cover;
 }
-/* .header{
+#titleBar{
+    display:flex;
+    box-shadow: 0px 80px 80px 80px rgba(0,0,0,.28) inset, 0 20px 25px 0 rgba(0,0,0,.4); 
+    height:15%;
+    padding:.5%;
+}
+.header {
+    display: flex;
+    max-width:150%;
+    height:150%;
+}
+#pika {
+ height:100%;   
+}
+#pokeball { 
+   height:65%;
+   box-shadow:  3px 15px 22px 2px rgba(0, 0, 0, 0.5); 
+   border-radius: 80px;
+}
+#scores {
+    /* placeholders to see sizing, positioning & visualization */
+    border:solid;
+    border-width:5px;
+    border-color:black;
+}
+#winners{
+    /* placeholders to see sizing, positioning & visualization */
+    border:solid;
+    border-width:5px;
+    border-color:black;
+}
+
+#battleStation{
+    /* placeholders to see sizing, positioning & visualization */
+    border:solid;
+    border-width:5px;
+    border-color:black;
+}
+#players{
+    /* placeholders to see sizing, positioning & visualization */
+    border:solid;
+    border-width:5px;
+    border-color:yellow;
+    display:flex;
+    text-align: center;
     justify-content: center;
 }
-.pokeball-image{ 
- align-items:flex-start;
-} */
-
+#start{
+     /* placeholders to see sizing, positioning & visualization */
+    border:solid;
+    border-width:5px;
+    border-color:red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
