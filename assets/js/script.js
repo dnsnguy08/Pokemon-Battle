@@ -1,10 +1,12 @@
-// Arrays for player hands
+// Variables for player hands
+const player1 = 1;
+const player2 = 2;
 const player1Hand = [];
 const player2Hand =[];
 const max = 151; // Game using only 151 original Pokemon
 
 // Function for randomzing player1 and player 2 decks to choose Pokemon from
-function generateHand() {
+function generateHands() {
   for (let i = 0; i < 6; i++) {
     var pickPokemon1 = Math.floor(Math.random() * max);
     player1Hand[i] = pickPokemon1;
@@ -13,7 +15,7 @@ function generateHand() {
   }
 }
 
-generateHand();
+generateHands();
 
 // Dice Roll API Key
 const options = {
@@ -25,16 +27,19 @@ const options = {
 };
 
 // Roll Dice to pick a random pokemon from player hands and display on page
-function getRandomPokemon() {
+function getRandomPokemon(player) {
   fetch('https://roll-dice1.p.rapidapi.com/rollDice', options) // Player 1 Dice roll
   
   .then(function(response){
     return response.json();
   })
   .then(function(data){
-    let result1 = data.data.Dice
-    var api_url = `https://pokeapi.co/api/v2/pokemon/${player1Hand[result1-1]}`; // Create API call based on dice roll result
-    
+    let result = data.data.Dice
+    if (player === 1) {
+      var api_url = `https://pokeapi.co/api/v2/pokemon/${player1Hand[result-1]}`; // Create API call based on dice roll result
+    } else {
+      var api_url = `https://pokeapi.co/api/v2/pokemon/${player2Hand[result-1]}`; // Create API call based on dice roll result
+    }
     fetch(api_url, { // Fetch pokemon data based on dice roll
     })  
       .then(function(response){
@@ -47,45 +52,15 @@ function getRandomPokemon() {
         let attack = data.stats[1].base_stat;
         let defense = data.stats[2].base_stat;
         let icon = data.sprites.other["official-artwork"].front_default;
-        document.getElementById("name1").textContent = pokeName;
-        document.getElementById("types1").textContent = pokeType;
-        document.getElementById("hp1").textContent = hp;
-        document.getElementById("attack1").textContent = attack;
-        document.getElementById("defense1").textContent = defense;
-        document.getElementById("img1").src = icon;
+        document.getElementById(`name${player}`).textContent = pokeName;
+        document.getElementById(`types${player}`).textContent = pokeType;
+        document.getElementById(`hp${player}`).textContent = hp;
+        document.getElementById(`attack${player}`).textContent = attack;
+        document.getElementById(`defense${player}`).textContent = defense;
+        document.getElementById(`img${player}`).src = icon;
       })
-
-      // Player 2 dice roll
-      fetch('https://roll-dice1.p.rapidapi.com/rollDice', options)
-  
-      .then(function(response){
-        return response.json();
-      })
-      .then(function(data) {
-        let result2 = data.data.Dice
-        var api_url2 = `https://pokeapi.co/api/v2/pokemon/${player2Hand[result2-1]}`; // Create API call based on dice roll result
-        
-        fetch(api_url2, { // Fetch pokemon data based on dice roll
-        })  
-          .then(function(response){
-          return response.json();
-        })
-          .then(function (data) { // apply pokemon stats an image to the page
-            let pokeName = data.name;
-            let pokeType = data.types[0].type.name;
-            let hp = data.stats[0].base_stat;
-            let attack = data.stats[1].base_stat;
-            let defense = data.stats[2].base_stat;
-            let icon = data.sprites.other["official-artwork"].front_default;
-            document.getElementById("name2").textContent = pokeName;
-            document.getElementById("types2").textContent = pokeType;
-            document.getElementById("hp2").textContent = hp;
-            document.getElementById("attack2").textContent = attack;
-            document.getElementById("defense2").textContent = defense;
-            document.getElementById("img2").src = icon;
-          })
-        })
-      })
+    })
   }
 
-getRandomPokemon();
+getRandomPokemon(player1);
+getRandomPokemon(player2);
