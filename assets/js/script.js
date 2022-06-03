@@ -5,7 +5,11 @@ const max = 151; // Game using only 151 original Pokemon
 
 // Function for randomzing player1 and player 2 decks to choose Pokemon from
 function generateHand() {
+<<<<<<< Updated upstream
   for (let i = 0; i < 6; i++) {
+=======
+  for (let i = 0; i < 7; i++) {
+>>>>>>> Stashed changes
     var pickPokemon1 = Math.floor(Math.random() * max);
     player1Hand[i] = pickPokemon1;
     var pickPokemon2 = Math.floor(Math.random() * max);
@@ -33,7 +37,11 @@ function getRandomPokemon() {
   })
   .then(function(data){
     let result1 = data.data.Dice
+<<<<<<< Updated upstream
     var api_url = `https://pokeapi.co/api/v2/pokemon/${player1Hand[result1-1]}`; // Create API call based on dice roll result
+=======
+    var api_url = `https://pokeapi.co/api/v2/pokemon/${player1Hand[result1]}`; // Create API call based on dice roll result
+>>>>>>> Stashed changes
     
     fetch(api_url, { // Fetch pokemon data based on dice roll
     })  
@@ -63,7 +71,11 @@ function getRandomPokemon() {
       })
       .then(function(data) {
         let result2 = data.data.Dice
+<<<<<<< Updated upstream
         var api_url2 = `https://pokeapi.co/api/v2/pokemon/${player2Hand[result2-1]}`; // Create API call based on dice roll result
+=======
+        var api_url2 = `https://pokeapi.co/api/v2/pokemon/${player2Hand[result2]}`; // Create API call based on dice roll result
+>>>>>>> Stashed changes
         
         fetch(api_url2, { // Fetch pokemon data based on dice roll
         })  
