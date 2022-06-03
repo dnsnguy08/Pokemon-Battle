@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Pokemon War!</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- header bar Div1-->
+      <div class="container-1">
+        <h1 class="header">Pokemon War!</h1>
+        <!-- enter icon here -->
+        <img
+          class="pokemon-icon"
+          src="./assets/images/pokemon-image.png"
+          width="250px"
+          height="300"
+        />
+      </div>
+      <!-- where the battles goes down -->
+      <div class="container-2">
+        <div class="battleStation">
+          <div h2 class="player1">Player1</div>
+          <div h2 class="player2">Player2</div>
+        </div>
+        <!---Start battle button-->
+        <div class="container-3">
+          <button type="button" class="btn btn-default">Start Battle</button>
+        </div>
+        <!---Scores + winner tracking area-->
+        <div class="container-4">
+          <div h2 class="ScoresWinners">Display High Scores</div>
+          <div class="scores">Scores</div>
+          <div class="winners">Winners</div>
+        </div>
+      </div>
+    </div>
+    <!-- // poke stats // just uncomment to test
     <p>name: <span id = "name"></span></p>
     <p>type: <span id = "types"></span></p>
     <p>hp: <span id = "hp"></span></p>
@@ -14,5 +45,6 @@
     <p>defense: <span id = "defense"></span></p>
     <img src="" id="img" alt="Picture of a Pokemon">
     <script src="/Pokemon-Battle/js/apps.js"></script>
-</body>
+-->
+  </body>
 </html>
