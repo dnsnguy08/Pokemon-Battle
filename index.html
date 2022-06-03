@@ -3,32 +3,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Pokemon War!</title>
   </head>
   <body>
 
-    <p>name: <span id = "name"></span></p>
+    <!-- <p>name: <span id = "name"></span></p>
     <p>type: <span id = "types"></span></p>
     <p>hp: <span id = "hp"></span></p>
     <p>attack: <span id = "attack"></span></p>
     <p>defense: <span id = "defense"></span></p>
-    <img src="" id="img" alt="Picture of a Pokemon">
-
-
+    <img src="" id="img" alt="Picture of a Pokemon"> -->
     <div class = "container">
       <!-- header bar Div1-->
       <div class=container-1>
-        <h1 class =header>Pokemon War!</h1>
         <!-- enter icon here -->
-        <img class ="pokemon-icon" src="./assets/images/pokemon-image.png" width="250px" height="300">
+        <img class ="header" src="./assets/images/Pokemon-war.png" width ="489 px" height ="126 px" alt="pokemon-war image">
+        <img class="pokeball-image" src="./assets/images/pokeball.png" width ="100 px" height ="100 px" alt="pokeball">
       </div>
       <!-- where the battles goes down -->
       <div class =container-2>
           <div class="battleStation">
-            <div class="player1"><h2>Player 1</h2></div>
-            <div class="player2"><h2>Player 2</h2></div>
+            <div class="player1"><h2>Player 1</h2>
+              <p>name: <span id = "name"></span></p>
+              <p>type: <span id = "types"></span></p>
+              <p>hp: <span id = "hp"></span></p>
+              <p>attack: <span id = "attack"></span></p>
+              <p>defense: <span id = "defense"></span></p>
+              <img src="" id="img" alt="Picture of a Pokemon">
+            </div>
+               <div class="player2"><h2>Player 2</h2>
+              <p>name: <span id = "name"></span></p>
+              <p>type: <span id = "types"></span></p>
+              <p>hp: <span id = "hp"></span></p>
+              <p>attack: <span id = "attack"></span></p>
+              <p>defense: <span id = "defense"></span></p>
+              <img src="" id="img" alt="Picture of a Pokemon">
+            </div>
           </div>
        <!---Start battle button-->    
         <div class =container-3>
@@ -44,7 +57,6 @@
         </div>
       </div>
     </div>
-
     <script src = ./assets/js/script.js></script>
   </body>
   </html>
