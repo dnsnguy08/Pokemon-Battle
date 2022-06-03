@@ -3,9 +3,12 @@ body {
     background-image: url("/assets/images/Kanto.png");
     background-size:cover;
 }
+.column{
+    padding:0px;
+}
 #titleBar{
     display:flex;
-    box-shadow: 0px 80px 80px 80px rgba(0,0,0,.28) inset, 0 20px 25px 0 rgba(0,0,0,.4); 
+    box-shadow: 80px 80px 80px 80px rgba(253, 253, 253,.4) inset, 80px 80px 80px 80px rgba(253, 253, 253,.4); 
     height:15%;
     padding:.5%;
 }
@@ -22,39 +25,58 @@ body {
    box-shadow:  3px 15px 22px 2px rgba(0, 0, 0, 0.5); 
    border-radius: 80px;
 }
+#ScoresWinners {
+    box-shadow: 0px 80px 80px 80px rgba(253, 253, 253, 0.28) inset, 80px 80px 80px 80px rgba(0,0,0,.4);
+    color:black;
+    font-weight:900px;
+}
 #scores {
     /* placeholders to see sizing, positioning & visualization */
     border:solid;
-    border-width:5px;
-    border-color:black;
+    border-width:2px;
+    border-color:rgb(213, 213, 213);
+    
 }
 #winners{
     /* placeholders to see sizing, positioning & visualization */
     border:solid;
-    border-width:5px;
-    border-color:black;
+    border-width:2px;
+    border-color:rgb(255, 255, 255);
 }
 
 #battleStation{
     /* placeholders to see sizing, positioning & visualization */
     border:solid;
-    border-width:5px;
-    border-color:black;
+    border-width:2px;
+    border-color:rgb(243, 232, 188) ;
+    color:black;
+    box-shadow: 80px 80px 80px 80px rgb(255, 248, 220) inset, 80px 80px 80px 80px rgba(0,0,0,.4);
+    font-weight:900;
+}
+#battleStation h2 {
+    font-weight:900;
 }
 #players{
     /* placeholders to see sizing, positioning & visualization */
     border:solid;
-    border-width:5px;
-    border-color:yellow;
+    border-width:2px;
+    border-color:rgb(255, 248, 220) ;
     display:flex;
     text-align: center;
     justify-content: center;
+    
+}
+#player1{
+    border:solid;
+    border-width:2px;
+    border-color:rgb(255, 248, 220) ;
+}
+#player2{
+    border:solid;
+    border-width:2px;
+    border-color:rgb(255, 248, 220) ;
 }
 #start{
-     /* placeholders to see sizing, positioning & visualization */
-    border:solid;
-    border-width:5px;
-    border-color:red;
     display: flex;
     align-items: center;
     justify-content: center;
