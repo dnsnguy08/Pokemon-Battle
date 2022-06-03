@@ -1,62 +1,77 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./assets/css/reset.css" />
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Pokemon War!</title>
-  </head>
-  <body>
 
-    <!-- <p>name: <span id = "name"></span></p>
-    <p>type: <span id = "types"></span></p>
-    <p>hp: <span id = "hp"></span></p>
-    <p>attack: <span id = "attack"></span></p>
-    <p>defense: <span id = "defense"></span></p>
-    <img src="" id="img" alt="Picture of a Pokemon"> -->
-    <div class = "container">
-      <!-- header bar Div1-->
-      <div class=container-1>
-        <!-- enter icon here -->
-        <img class ="header" src="./assets/images/Pokemon-war.png" width ="489 px" height ="126 px" alt="pokemon-war image">
-        <img class="pokeball-image" src="./assets/images/pokeball.png" width ="100 px" height ="100 px" alt="pokeball">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="./assets/css/reset.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+  <title>Pokemon War!</title>
+</head>
+
+<body>
+  <!-- Title & Icon Bar -->
+  <div class="columns is-vcentered" id="titleBar">
+    <!-- enter Icon & Logo Image here -->
+    <div class="column"></div>
+    <div class="column">
+      <img class="header" src="./assets/images/Pokemon-War2.png">
+    </div>
+    <div class="column mr-5">
+      <img class="image is-pulled-right is-flex-shrink-2 " src="./assets/images/pokeball.png">
+    </div>
+  </div>
+
+  <div class="columns mx-auto is-vcentered p-6 mx-6 mt-6 ">
+    <!---Scores + Winner tracking container -->
+    <div class="column is-one-fifth is-offset-1" id="ScoresWinners">
+      <div class="columns" id="scores">
+      <h2>Scores</h2>
+      <div class="column" id="player1">
+        <h2>Player 1</h2>
       </div>
-      <!-- where the battles goes down -->
-      <div class =container-2>
-          <div class="battleStation">
-            <div class="player1"><h2>Player 1</h2>
-              <p>name: <span id = "name"></span></p>
-              <p>type: <span id = "types"></span></p>
-              <p>hp: <span id = "hp"></span></p>
-              <p>attack: <span id = "attack"></span></p>
-              <p>defense: <span id = "defense"></span></p>
-              <img src="" id="img" alt="Picture of a Pokemon">
-            </div>
-               <div class="player2"><h2>Player 2</h2>
-              <p>name: <span id = "name"></span></p>
-              <p>type: <span id = "types"></span></p>
-              <p>hp: <span id = "hp"></span></p>
-              <p>attack: <span id = "attack"></span></p>
-              <p>defense: <span id = "defense"></span></p>
-              <img src="" id="img" alt="Picture of a Pokemon">
-            </div>
-          </div>
-       <!---Start battle button-->    
-        <div class =container-3>
-           <button type="button" class="btn btn-default">Start Battle</button>
-       </div>
-      <!---Scores + winner tracking area-->
-      <div class = container-4>
-        <div class="ScoresWinners"><h2>Scores</h2></div>
-        <div class="player1"><h2>Player 1</h2></div>
-        <div class="player2"><h2>Player 2</h2></div>
-            </div>
-            <div class="winners"><h2>Winners</h2></div>
-        </div>
+      <div class="column" id="player2">
+        <h2>Player 2</h2>
       </div>
     </div>
-    <script src = ./assets/js/script.js></script>
-  </body>
-  </html>
+      <div class="columns" id="winners">
+        <h2>Winners</h2>
+      </div>
+    </div>
+    <!-- <div class="column is-one-fifths"></div> -->
+    <!-- all divs below need restructuring to match Bulma Framework! -->
+    <!-- Battle Station -->
+    <div class="column is-two-fifths is-offset-3" id="battleStation">
+      <div class="columns" id="players">
+      <div class="column" id="player1">
+        <h2>Player 1</h2>
+        <p>name: <span id="name"></span></p>
+        <p>type: <span id="types"></span></p>
+        <p>hp: <span id="hp"></span></p>
+        <p>attack: <span id="attack"></span></p>
+        <p>defense: <span id="defense"></span></p>
+        <img src="" id="img" alt="Picture of a Pokemon">
+      </div>
+      <div class="column" id="player2">
+        <h2>Player 2</h2>
+        <p>name: <span id="name"></span></p>
+        <p>type: <span id="types"></span></p>
+        <p>hp: <span id="hp"></span></p>
+        <p>attack: <span id="attack"></span></p>
+        <p>defense: <span id="defense"></span></p>
+        <img src="" id="img" alt="Picture of a Pokemon">
+      </div>
+    </div>
+      <!---Start battle button-->
+      <div class="column" id="start">
+        <button type="button" class="btn btn-default">Start Battle</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
