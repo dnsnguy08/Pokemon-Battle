@@ -1,8 +1,11 @@
+## Pokemon Battle
+## Decsription of the project
+## User Story
 AS A gamer 
 I WANT to play a pokemon battle game with a friend
 SO THAT I can have some fun
 
-
+## Acceptance Criteria
 GIVEN a battle station with a start button
 GIVEN a list of possible characters 
 WHEN i press the "battle button"
@@ -11,3 +14,7 @@ WHEN i repeat the process
 THEN the scores are added up till the round limit is reached.
 WHEN the round limit is reached
 THEN the game winner is announced & their name is added to previous won games list
+## Links
+
+[Github URL here](https://github.com/dnsnguy08/Pokemon-Battle)<br>
+[Live webpage URL]()<br>
