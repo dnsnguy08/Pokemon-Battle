@@ -1,11 +1,11 @@
 body {
     /* placeholder color */
-    background-color:lightskyblue;
+    background-image: url("/assets/images/Kanto.png");
+    background-size:cover;
 }
 #titleBar{
     display:flex;
-    background: linear-gradient(45deg, red, blue); 
-    box-shadow: 0px 80px 80px 80px rgba(0,0,0,.28) inset, 0 20px 25px 0 rgba(0,0,0,.25); 
+    box-shadow: 0px 80px 80px 80px rgba(0,0,0,.28) inset, 0 20px 25px 0 rgba(0,0,0,.4); 
     height:15%;
     padding:.5%;
 }
@@ -13,15 +13,15 @@ body {
     display: flex;
     max-width:150%;
     height:150%;
-
 }
-.image { 
+#pika {
+ height:100%;   
+}
+#pokeball { 
    height:65%;
-   box-shadow:  0 20px 25px 0 rgba(0, 0, 0, 0.2); 
-   border-radius: 50px;
+   box-shadow:  3px 15px 22px 2px rgba(0, 0, 0, 0.5); 
+   border-radius: 80px;
 }
-
-
 #scores {
     /* placeholders to see sizing, positioning & visualization */
     border:solid;
