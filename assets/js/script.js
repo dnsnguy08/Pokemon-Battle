@@ -1,5 +1,4 @@
 //adding the event listener to generate deck battle
-//implement button on the top randomize button
 var generateDeckEl = document.getElementById("load-deck");
 generateDeckEl.addEventListener("click",function(){
     generateHand();
@@ -89,3 +88,24 @@ const main = async () => {
   setPlayerPokemon(players.two.id, players.two.pokemon);
 };
 main();
+// function to start the battle
+// poke1Attack = attack
+// poke2Health = hp + defense
+// poke2Attack = attack
+// start battle >>add event listener on click start button
+var hp1 = document.getElementById("hp1");
+var attack1 =  document.getElementById("attack1");
+var hp2 = document.getElementById("hp2");
+var attack2 =  document.getElementById("attack2");
+var startButton = document.getElementById("start-battle");
+startBattle.addEventListener("click",function(){
+  function startBattle(){
+    while (hp1 > 0 || hp2 > 0){
+      console.log(hp1);
+      hp2 -= attack1;
+      console.log(hp2);
+    }
+    
+  }
+});
+
