@@ -76,7 +76,7 @@ body {
     border-width:2px;
     border-color:rgb(255, 248, 220) ;
 }
-#start{
+#load-deck{
     display: flex;
     align-items: center;
     justify-content: center;
