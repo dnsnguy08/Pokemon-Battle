@@ -1,3 +1,10 @@
+//adding the event listener to generate deck battle
+//implement button on the top randomize button
+var generateDeckEl = document.getElementById("load-deck");
+generateDeckEl.addEventListener("click",function(){
+    generateHand();
+}
+);
 // Function for randomzing player1 and player 2 decks to choose Pokemon from
 function generateHand() {
   const max = 151; // Game using only 151 original Pokemon
@@ -6,7 +13,7 @@ function generateHand() {
     var pokemonId = Math.floor(Math.random() * max);
     playerHand[i] = pokemonId;
   }
-  return playerHand;
+  return playerHand; //end statement
 }
 
 // Roll Dice to pick a random pokemon from player hands and display on page
