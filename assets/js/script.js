@@ -71,7 +71,6 @@ generateDeckEl.addEventListener("click",function(){
 }
 );
 
-
 var selectPokemon1 = document.getElementById("roll-dice-1");
 selectPokemon1.addEventListener("click",function(){
   getRandomPokemon(player1);
