@@ -1,6 +1,6 @@
 body {
     /* placeholder color */
-    background-image: url("/assets/images/kanto.png");
+    background-image: url("../images/Kanto.png");
     background-size:cover;
 }
 .column{
