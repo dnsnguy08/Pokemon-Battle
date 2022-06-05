@@ -82,3 +82,21 @@ selectPokemon2.addEventListener("click",function(){
   getRandomPokemon(player2);
 }
 );
+// function to start the battle
+// poke1Attack = attack
+// poke2Health = hp + defense
+// poke2Attack = attack
+// start battle >>add event listener on click start button
+var startButton = document.getElementById("start-battle");
+startButton.addEventListener("click",function(){
+  // function startBattle(){
+    while (parseInt(document.getElementById("hp1").textContent) > 0 || parseInt(document.getElementById("hp2").textContent) > 0)
+    {
+      console.log(document.getElementById("hp1").textContent);
+    break ;
+    } 
+  }
+);
+
+
+
