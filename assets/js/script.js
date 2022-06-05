@@ -58,27 +58,47 @@ function getRandomPokemon(player) {
         document.getElementById(`attack${player}`).textContent = attack;
         document.getElementById(`defense${player}`).textContent = defense;
         document.getElementById(`img${player}`).src = icon;
-        document.getElementById(`chose-pokemon${player}`).textContent = pokeName;
       })
     })
   }
 
 //adding the event listener to generate deck battle
 //implement button on the top randomize button
-var generateDeckEl = document.getElementById("load-deck");
+var generateDeckEl = document.querySelector("#load-deck button");
 generateDeckEl.addEventListener("click",function(){
     generateHands();
 }
 );
 
-var selectPokemon1 = document.getElementById("roll-dice-1");
+var selectPokemon1 = document.querySelector("#roll-dice-1 button");
 selectPokemon1.addEventListener("click",function(){
   getRandomPokemon(player1);
 }
 );
 
-var selectPokemon2 = document.getElementById("roll-dice-2");
+var selectPokemon2 = document.querySelector("#roll-dice-2 button");
 selectPokemon2.addEventListener("click",function(){
   getRandomPokemon(player2);
 }
+);
+
+// var hp1 = document.getElementById('hp1').textContent;
+// var startButton = document.getElementById("start-battle");
+// startButton.addEventListener("click",function(){
+//   console.log(hp1);
+
+// });
+
+
+var startButton = document.querySelector("#start-battle button");
+startButton.addEventListener("click",function(){
+  // function startBattle(){
+    while (parseInt(document.getElementById("hp1").textContent) > 0 || parseInt(document.getElementById("hp2").textContent) > 0)
+    {
+      console.log(document.getElementById("hp1").textContent);
+      break
+      // parseInt(document.getElementById("hp2").textContent) -= parseInt(document.getElementById("attack1").textContent);
+
+    }
+  }
 );
