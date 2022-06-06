@@ -12,6 +12,8 @@
   <title>Pokemon War!</title>
 </head>
 
+
+
 <body>
   <!-- Title & Icon Bar -->
   <div class="columns is-vcentered" id="titleBar">
@@ -26,68 +28,128 @@
       <img class="image is-pulled-right is-flex-shrink-2" id="pokeball" src="assets/images/pokeball.png">
     </div>
   </div>
-  
-  <div class="columns mx-auto is-vcentered p-6 mx-6 mt-6 ">
+
+
+
+  <!-- For scores & battle station container - justifies row -->
+  <div class="columns mx-auto is-vcentered p-3 mx-6 mt-2">
+
     <!---Scores + Winner tracking container -->
     <div class="column is-one-fifth is-offset-1" id="ScoresWinners">
       <div class="columns" id="scores">
-      <h2>Scores</h2>
-      <div class="column" id="player1Score">
-        <h2>Player 1</h2>
+        <h2>Scores</h2>
+        <div class="column" id="player1Score">
+          <h2>Player 1</h2>
+        </div>
+        <div class="column" id="player2Score">
+          <h2>Player 2</h2>
+        </div>
       </div>
-      <div class="column" id="player2Score">
-        <h2>Player 2</h2>
-      </div>
-    </div>
       <div class="columns" id="winners">
         <h2>Winners</h2>
       </div>
     </div>
-    <!-- <div class="column is-one-fifths"></div> -->
-    <!-- all divs below need restructuring to match Bulma Framework! -->
+
+
+
     <!-- Battle Station -->
-    <div class="column is-two-fifths is-offset-3" id="battleStation">
-      <div class="columns" id="players">
-      <div class="column" id="player1">
-        <h2>Player 1</h2>
-        <p>name: <span id="name1"></span></p>
-        <p>type: <span id="types1"></span></p>
-        <p>hp: <span id="hp1"></span></p>
-        <p>attack: <span id="attack1"></span></p>
-        <p>defense: <span id="defense1"></span></p>
-        <img src="" id="img1" alt="Picture of a Pokemon">
+    <div class="column is-two-fifths is-offset-2" id="battleStation">
+
+      <div class="columns" id="currentplayer">
+        <div class="column" id="player1">
+          <h2>Player 1</h2>
+        </div>
+        <div class="column" id="player2">
+          <h2>Player 2</h2>
+        </div>
       </div>
-      <div class="column" id="player2">
-        <h2>Player 2</h2>
-        <p>name: <span id="name2"></span></p>
-        <p>type: <span id="types2"></span></p>
-        <p>hp: <span id="hp2"></span></p>
-        <p>attack: <span id="attack2"></span></p>
-        <p>defense: <span id="defense2"></span></p>
-        <img src="" id="img2" alt="Picture of a Pokemon">
+        <div class="columns" id="currentCards">
+          <img class="btlCardback1" src="assets/images/cardback.png" alt="">
+         <div class="hide">
+            <div class="column" id="player1Card">
+            <p>name: <span id="name1"></span></p>
+            <p>type: <span id="types1"></span></p>
+            <p>hp: <span id="hp1"></span></p>
+            <p>attack: <span id="attack1"></span></p>
+            <img src="" id="img1" alt="Picture of a Pokemon">
+          </div></div>
+          <img class="btlCardback2" src="assets/images/cardback.png" alt="">
+          <div class="hide">
+            <div class="column" id="player2Card">
+            <p>name: <span id="name2"></span></p>
+            <p>type: <span id="types2"></span></p>
+            <p>hp: <span id="hp2"></span></p>
+            <p>attack: <span id="attack2"></span></p>
+            <img src="" id="img2" alt="Picture of a Pokemon">
+          </div></div>
       </div>
+      <div class="columns is-vcentered m-2" id="gameButtons">
+        <!---Roll Dice button-->
+        <button type="button" class="nes-btn" id="roll-dice-1">Player 1: Roll Dice!</button>
+        <!---load start battle button-->
+        <button type="button" class="nes-btn" id="startBattle">Start battle</button>
+        <!---Roll Dice button-->
+        <button type="button" class="nes-btn" id="roll-dice-2">Player 2: Roll Dice!</button>
+      </div>
+
     </div>
-      <!---load deck battle button-->
-      <div class="column" id="load-deck">
-        <button type="button" class="nes-btn">Get Your Decks</button>
-      <!---Roll Dice button-->
-      <div class="column" id="roll-dice-1">
-        <button type="button" class="nes-btn">Player 1: Roll Dice!</button>
-      </div>
-      <!---Roll Dice button-->
-      <div class="column" id="roll-dice-2">
-        <button type="button" class="nes-btn">Player 2: Roll Dice!</button>
-      </div>
-    <!---load start battle button-->
-<!--     <div class="column" id="start-battle">
-      <button type="button" class="nes-btn">Start battle</button>
-    </div> -->
-      <div class="column" id="start-battle">
-        <button type="button" class="btn btn-default">Start battle</button>
-      </div>
-    </div>
+
   </div>
 
+  <!-- player Decks & Generate button -->
+  <div class="columns is-vcentered mx-6 mt-2">
+    <div class="column is-offset-2 is-three-fifths" id="playerDecks">
+      <div class="columns">
+        <div class="columns" id="player1Deck">
+          <div class="column">
+            <div class="card" id="p1c1"><img src="assets/images/cardback.png"></div>
+          </div>
+          <div class="column">
+            <div class="card" id="p1c2"><img src="assets/images/cardback.png"></div>
+          </div>
+          <div class="column">
+            <div class="card" id="p1c3"><img src="assets/images/cardback.png"></div>
+          </div>
+          <div class="column">
+            <div class="card" id="p1c3"><img src="assets/images/cardback.png"></div>
+          </div>
+          <div class="column">
+            <div class="card" id="p1c3"><img src="assets/images/cardback.png"></div>
+          </div>
+          <div class="column">
+            <div class="card" id="p1c3"><img src="assets/images/cardback.png"></div>
+          </div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="columns mt-2" id="player2Deck">
+          <div class="column">
+            <div class="card" id="p2c1"><img src="assets/images/cardback.png"></div>
+          </div>
+          <div class="column">
+            <div class="card" id="p2c2"><img src="assets/images/cardback.png"></div>
+          </div>
+          <div class="column">
+            <div class="card" id="p2c3"><img src="assets/images/cardback.png"></div>
+          </div>
+          <div class="column">
+            <div class="card" id="p2c4"><img src="assets/images/cardback.png"></div>
+          </div>
+          <div class="column">
+            <div class="card" id="p2c5"><img src="assets/images/cardback.png"></div>
+          </div>
+          <div class="column">
+            <div class="card" id="p2c6"><img src="assets/images/cardback.png"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!---load deck battle button-->
+    <div class="column is-one-fifth mx-6" id="generateDeck">
+      <button type="button" class="nes-btn">Get Your Decks</button>
+    </div>
+
+  </div>
   <script src="assets/js/script.js"></script>
 </body>
 

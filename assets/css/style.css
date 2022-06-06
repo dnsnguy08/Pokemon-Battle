@@ -46,38 +46,62 @@ body {
 
 #battleStation{
     /* placeholders to see sizing, positioning & visualization */
-    border:solid;
+    border:dashed;
     border-width:2px;
-    border-color:rgb(243, 232, 188) ;
-    color:black;
-    box-shadow: 80px 80px 80px 80px rgb(255, 248, 220) inset, 80px 80px 80px 80px rgba(0,0,0,.4);
+    border-color:black;
+    box-shadow: 80px 80px 80px 80px white inset, 80px 80px 80px 80px rgba(0,0,0,.4);
     font-weight:900;
+    width:550px;
 }
 #battleStation h2 {
     font-weight:900;
 }
-#players{
+#currentplayer{
     /* placeholders to see sizing, positioning & visualization */
-    border:solid;
+    border:dashed;
     border-width:2px;
-    border-color:rgb(255, 248, 220) ;
+    border-color:black;
     display:flex;
     text-align: center;
     justify-content: center;
     
 }
-#player1{
-    border:solid;
-    border-width:2px;
-    border-color:rgb(255, 248, 220) ;
+#currentCards {
+    border:dashed;
+    border-color:black;
+    width:550px;
 }
-#player2{
+
+#player1Card {
     border:solid;
-    border-width:2px;
-    border-color:rgb(255, 248, 220) ;
+    border-width:10px;
+    border-color:rgb(238, 240, 113);
+    text-align: center;
+    height:350px;
+    width:250px;
 }
-#load-deck{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+#player2Card {
+    border:solid;
+    border-width:10px;
+    border-color:rgb(238, 240, 113);
+    text-align: center;
+    height:350px;
+    width:250px;
+}
+
+#gameButtons {
+display:flex;
+justify-content: space-between;
+}
+.hide{
+    visibility: hidden;
+}
+.btlCardback1{
+    height:350px;
+    width:250px;
+}
+.btlCardback2{
+    height:350px;
+    width:250px;
 }
