@@ -10,13 +10,16 @@ body {
     display:flex;
     box-shadow: 80px 80px 80px 80px rgba(253, 253, 253,.4) inset, 80px 80px 80px 80px rgba(253, 253, 253,.4); 
     height:15%;
-    padding:.5%;
+    padding-left:25px;
+    padding-right:25px;
+    padding-top:20px;
 }
-.header {
+/* .header {
     display: flex;
     max-width:150%;
     height:150%;
-}
+    justify-content: space-evenly;
+} */
 #pika {
  height:100%;   
 }
@@ -25,30 +28,28 @@ body {
    box-shadow:  3px 15px 22px 2px rgba(0, 0, 0, 0.5); 
    border-radius: 80px;
 }
-#ScoresWinners {
+#winners {
     box-shadow: 0px 80px 80px 80px rgba(253, 253, 253, 0.28) inset, 80px 80px 80px 80px rgba(0,0,0,.4);
     color:black;
     font-weight:900px;
+    text-align: center;
 }
 #scores {
     /* placeholders to see sizing, positioning & visualization */
     border:solid;
-    border-width:2px;
-    border-color:rgb(213, 213, 213);
+    border-width:5px;
+    border-color:rgb(255, 255, 255);
     
 }
-#winners{
+#winners {
     /* placeholders to see sizing, positioning & visualization */
     border:solid;
-    border-width:2px;
+    border-width:5px;
     border-color:rgb(255, 255, 255);
 }
 
 #battleStation{
     /* placeholders to see sizing, positioning & visualization */
-    border:dashed;
-    border-width:2px;
-    border-color:black;
     box-shadow: 80px 80px 80px 80px white inset, 80px 80px 80px 80px rgba(0,0,0,.4);
     font-weight:900;
     width:550px;
@@ -58,33 +59,24 @@ body {
 }
 #currentplayer{
     /* placeholders to see sizing, positioning & visualization */
-    border:dashed;
-    border-width:2px;
-    border-color:black;
     display:flex;
     text-align: center;
     justify-content: center;
     
 }
 #currentCards {
-    border:dashed;
-    border-color:black;
     width:550px;
 }
 
 #player1Card {
-    border:solid;
-    border-width:10px;
-    border-color:rgb(238, 240, 113);
+    background-color:yellow;
     text-align: center;
     height:350px;
     width:250px;
 }
 
 #player2Card {
-    border:solid;
-    border-width:10px;
-    border-color:rgb(238, 240, 113);
+    background-color:yellow;
     text-align: center;
     height:350px;
     width:250px;
@@ -93,15 +85,23 @@ body {
 #gameButtons {
 display:flex;
 justify-content: space-between;
+border-width:5px;
 }
-.hide{
+/* .hide{
     visibility: hidden;
+    position: relative;
 }
+.hide:after{
+    visibility: visible;
+    position:absolute;
+} */
 .btlCardback1{
     height:350px;
     width:250px;
+    margin:10px;
 }
 .btlCardback2{
     height:350px;
     width:250px;
+    margin:10px;
 }
