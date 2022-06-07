@@ -23,7 +23,7 @@ body {
 #pika {
  height:100%;   
 }
-#pokeball { 
+#pokeBall { 
    height:65%;
    box-shadow:  3px 15px 22px 2px rgba(0, 0, 0, 0.5); 
    border-radius: 80px;
@@ -57,7 +57,7 @@ body {
 #battleStation h2 {
     font-weight:900;
 }
-#currentplayer{
+#currentPlayer{
     /* placeholders to see sizing, positioning & visualization */
     display:flex;
     text-align: center;
