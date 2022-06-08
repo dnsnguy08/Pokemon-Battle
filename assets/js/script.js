@@ -4,8 +4,8 @@ const player2 = 2;
 const player1Hand = [];
 const player2Hand =[];
 const max = 151; // Game using only 151 original Pokemon
-var bgcolorPlayerCard2 = document.getElementById("player2Card");
-var bgcolorPlayerCard1 = document.getElementById("player1Card");
+var activeCardTwo = document.getElementById("player2Card");
+var activeCardOne = document.getElementById("player1Card");
 var diceResult;
 
 // Function for randomzing player1 and player 2 decks to choose Pokemon from
@@ -102,7 +102,7 @@ generateDeckEl.addEventListener("click",function(){
 // Player 1 roll dice and summon pokemon from deck
 var selectPokemon1 = document.querySelector("#rollDice1");
 selectPokemon1.addEventListener("click",function(){
-  bgcolorPlayerCard1.style.backgroundColor = "yellow";
+  activeCardOne.style.backgroundColor = "yellow";
   getRandomPokemon(player1);
   console.log(selectPokemon1);
   }
@@ -111,7 +111,7 @@ selectPokemon1.addEventListener("click",function(){
 // Player 2 roll dice and summon pokemon from deck
 var selectPokemon2 = document.querySelector("#rollDice2");
 selectPokemon2.addEventListener("click",function(){
-  bgcolorPlayerCard2.style.backgroundColor = "yellow";
+  activeCardTwo.style.backgroundColor = "yellow";
   getRandomPokemon(player2);
   console.log(selectPokemon1);
   }
@@ -131,24 +131,25 @@ var attack2 = parseInt(document.getElementById("attack2").textContent);
     hp2 -= attack1;
     var hp2Text = document.getElementById("hp2");
     hp2Text.textContent = hp2.toString();
+    $('#player2Card').shake()
     // delay
     if (hp2 <= 0){
       hp2Text.textContent = '0';
       //code for pokemon faint
-      bgcolorPlayerCard2.style.backgroundColor = "red";
+      activeCardTwo.style.backgroundColor = "red";
       player2Hand.splice((diceResult - 1),1);
       console.log(player2Hand);
       break;
-
     }
-    bgcolorPlayerCard1.style.backgroundColor = "yellow";
+
     hp1 -= attack2;
     var hp1Text = document.getElementById("hp1");
     hp1Text.textContent = hp1.toString();
+    $('#player1Card').shake()
     //delay    
     if (hp1 <= 0){
       hp1Text.textContent = '0';
-      bgcolorPlayerCard1.style.backgroundColor = "red";
+      activeCardOne.style.backgroundColor = "red";
       player1Hand.splice((diceResult - 1),1);
       console.log(player1Hand);
       break;
