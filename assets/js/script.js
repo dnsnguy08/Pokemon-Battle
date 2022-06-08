@@ -97,7 +97,7 @@ generateDeckEl.addEventListener("click",function(){
 );
 
 // Player 1 roll dice and summon pokemon from deck
-var selectPokemon1 = document.querySelector("#roll-dice-1");
+var selectPokemon1 = document.querySelector("#rollDice1");
 selectPokemon1.addEventListener("click",function(){
   getRandomPokemon(player1);
   console.log(selectPokemon1);
@@ -105,7 +105,7 @@ selectPokemon1.addEventListener("click",function(){
 );
 
 // Player 2 roll dice and summon pokemon from deck
-var selectPokemon2 = document.querySelector("#roll-dice-2");
+var selectPokemon2 = document.querySelector("#rollDice2");
 selectPokemon2.addEventListener("click",function(){
   getRandomPokemon(player2);
   console.log(selectPokemon1);
