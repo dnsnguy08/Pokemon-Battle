@@ -2,11 +2,12 @@
 const player1 = 1;
 const player2 = 2;
 const player1Hand = [];
-const player2Hand =[];
+const player2Hand = [];
 const max = 151; // Game using only 151 original Pokemon
 var activeCardTwo = document.getElementById("player2Card");
 var activeCardOne = document.getElementById("player1Card");
 var diceResult;
+var pickPokemon; // variable for random pokemon when dice index is undefined in player decks
 
 // Function for randomzing player1 and player 2 decks to choose Pokemon from
 function generateHands() {
@@ -62,14 +63,28 @@ function getRandomPokemon(player) {
     return response.json();
   })
   .then(function(data){
-    let result = data.data.Dice
     diceResult = data.data.Dice
-    console.log(result);
-    if (player === 1) {
-      var api_url = `https://pokeapi.co/api/v2/pokemon/${player1Hand[result-1]}`; // Create API call based on dice roll result
-    } else {
-      var api_url = `https://pokeapi.co/api/v2/pokemon/${player2Hand[result-1]}`; // Create API call based on dice roll result
+    console.log(`dice roll: ${diceResult}`);
+    console.log(`hand index: ${diceResult -1}`);
+    
+    if (player === 1 && player1Hand[diceResult-1] === undefined) {
+      pickPokemon = Math.floor(Math.random() * player1Hand.length); // randomize pokemon summon if dice roll index does not apply
+      let getPokemon = player1Hand[pickPokemon];
+      console.log(getPokemon);
+      var api_url = `https://pokeapi.co/api/v2/pokemon/${getPokemon}`; // Create API call based on remaining pokemon in player hand
+    } else if (player === 1) {
+      var api_url = `https://pokeapi.co/api/v2/pokemon/${player1Hand[diceResult-1]}`; // Create API call based on dice roll result
     }
+
+    if (player === 2 && player2Hand[diceResult-1] === undefined) {
+      pickPokemon = Math.floor(Math.random() * player2Hand.length)
+      let getPokemon = player2Hand[pickPokemon];
+      console.log(getPokemon);
+      var api_url = `https://pokeapi.co/api/v2/pokemon/${getPokemon}`; // Create API call based on remaining pokemon in player hand
+    } else if (player === 2) {
+      var api_url = `https://pokeapi.co/api/v2/pokemon/${player2Hand[diceResult-1]}`; // Create API call based on dice roll result
+    }
+
     fetch(api_url, { // Fetch pokemon data based on dice roll
     })  
       .then(function(response){
@@ -89,6 +104,15 @@ function getRandomPokemon(player) {
       })
     })
   }
+
+// Function for removing fainted pokemon from player hands
+function checkPlayerCards(hand) {
+    if (hand[diceResult-1] === undefined) {
+      hand.splice(pickPokemon)
+    } else {
+      hand.splice((diceResult-1),1);
+    }
+}
 
 // Event listener to generate decks
 var generateDeckEl = document.querySelector("#generateDeck");
@@ -137,7 +161,7 @@ var attack2 = parseInt(document.getElementById("attack2").textContent);
       hp2Text.textContent = '0';
       //code for pokemon faint
       activeCardTwo.style.backgroundColor = "red";
-      player2Hand.splice((diceResult - 1),1);
+      checkPlayerCards(player2Hand); // check player deck and remove fainted pokemon
       console.log(player2Hand);
       break;
     }
@@ -150,15 +174,11 @@ var attack2 = parseInt(document.getElementById("attack2").textContent);
     if (hp1 <= 0){
       hp1Text.textContent = '0';
       activeCardOne.style.backgroundColor = "red";
-      player1Hand.splice((diceResult - 1),1);
+      checkPlayerCards(player1Hand); // check player deck and remove fainted pokemon
       console.log(player1Hand);
       break;
     }
-    console.log(hp2Text);
-    console.log(hp1Text);
-
-  } 
-  
+  }
 });
 // To do list
 //delay
