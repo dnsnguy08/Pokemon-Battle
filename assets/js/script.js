@@ -15,6 +15,31 @@ function generateHands() {
   }
   console.log(player1Hand);
   console.log(player2Hand);
+  // Display pokemon images in player deck cards
+  for (let i = 0; i < player1Hand.length; i++) {
+    var api_url = `https://pokeapi.co/api/v2/pokemon/${player1Hand[i]}`;
+    fetch(api_url, { // Fetch pokemon data
+    })  
+      .then(function(response){
+      return response.json();
+    })
+      .then(function(data){ // apply pokemon image to player deck card
+        let icon = data.sprites.other["official-artwork"].front_default;
+        document.querySelector(`#pic1${i}`).src = icon;
+      })
+    }
+  for (let i = 0; i < player2Hand.length; i++) {
+    var api_url = `https://pokeapi.co/api/v2/pokemon/${player2Hand[i]}`;
+    fetch(api_url, { // Fetch pokemon data
+    })  
+      .then(function(response){
+      return response.json();
+    })
+      .then(function(data){ // apply pokemon image to player deck card
+        let icon = data.sprites.other["official-artwork"].front_default;
+        document.querySelector(`#pic2${i}`).src = icon;
+      })
+    }
 }
 
 // Dice Roll API Key
@@ -35,6 +60,7 @@ function getRandomPokemon(player) {
   })
   .then(function(data){
     let result = data.data.Dice
+    console.log(result);
     if (player === 1) {
       var api_url = `https://pokeapi.co/api/v2/pokemon/${player1Hand[result-1]}`; // Create API call based on dice roll result
     } else {
@@ -50,38 +76,42 @@ function getRandomPokemon(player) {
         let pokeType = data.types[0].type.name;
         let hp = data.stats[0].base_stat;
         let attack = data.stats[1].base_stat;
-        let defense = data.stats[2].base_stat;
         let icon = data.sprites.other["official-artwork"].front_default;
         document.getElementById(`name${player}`).textContent = pokeName;
         document.getElementById(`types${player}`).textContent = pokeType;
         document.getElementById(`hp${player}`).textContent = hp;
-        document.getElementById(`attack${player}`).textContent = attack;
-        document.getElementById(`defense${player}`).textContent = defense;
+        document.getElementById(`attack${player}`).textContent = attack; 
         document.getElementById(`img${player}`).src = icon;
       })
     })
   }
 
-//adding the event listener to generate deck battle
-//implement button on the top randomize button
-var generateDeckEl = document.querySelector("#load-deck button");
+// Event listener to generate decks
+window.onload=function(){
+var generateDeckEl = document.querySelector("#generateDeck");
 generateDeckEl.addEventListener("click",function(){
     generateHands();
+    // displayDecks();
+    console.log(generateDeckEl);
 }
 );
 
-var selectPokemon1 = document.querySelector("#roll-dice-1 button");
+// Player 1 roll dice and summon pokemon from deck
+var selectPokemon1 = document.querySelector("#roll-dice-1");
 selectPokemon1.addEventListener("click",function(){
   getRandomPokemon(player1);
+  console.log(selectPokemon1);
 }
 );
 
-var selectPokemon2 = document.querySelector("#roll-dice-2 button");
+// Player 2 roll dice and summon pokemon from deck
+var selectPokemon2 = document.querySelector("#roll-dice-2");
 selectPokemon2.addEventListener("click",function(){
   getRandomPokemon(player2);
+  console.log(selectPokemon1);
 }
 );
-
+};
 // function to start the battle
 // poke1Attack = attack
 // poke2Health = hp + defense
@@ -94,20 +124,14 @@ selectPokemon2.addEventListener("click",function(){
 //   console.log(hp1);
 // });
 
+// var hp1 = document.getElementById("hp1").textContent
 
-// var startButton = document.querySelector("#start-battle button");
+// var startButton = document.querySelector("#startBattle");
 // startButton.addEventListener("click",function(){
-  // function startBattle(){
 //     while (parseInt(document.getElementById("hp1").textContent) > 0 || parseInt(document.getElementById("hp2").textContent) > 0)
 //     {
 //       console.log(document.getElementById("hp1").textContent);
-//     } 
-//   }
-// );
-
-//        parseInt(document.getElementById("hp2").textContent) -= parseInt(document.getElementById("attack1").textContent);
-
+//       break
 //     }
 //   }
 // );
-
