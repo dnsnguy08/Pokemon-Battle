@@ -8,6 +8,9 @@ var activeCardTwo = document.getElementById("player2Card");
 var activeCardOne = document.getElementById("player1Card");
 var diceResult;
 var pickPokemon; // variable for random pokemon when dice index is undefined in player decks
+var battleON = true; // Bool indicating battle round has been triggered
+var playerOneTurn = false; // Bool variables to determine priority of player turns
+var playerTwoTurn = false; //
 
 // Function for randomzing player1 and player 2 decks to choose Pokemon from
 function generateHands() {
@@ -126,58 +129,93 @@ generateDeckEl.addEventListener("click",function(){
 // Player 1 roll dice and summon pokemon from deck
 var selectPokemon1 = document.querySelector("#rollDice1");
 selectPokemon1.addEventListener("click",function(){
+  playerOneTurn = true;
   activeCardOne.style.backgroundColor = "yellow";
   getRandomPokemon(player1);
-  console.log(selectPokemon1);
+  if (player2Hand.length === 0){
+    console.log('Player 2 has won!');
+    }
   }
 );
 
 // Player 2 roll dice and summon pokemon from deck
 var selectPokemon2 = document.querySelector("#rollDice2");
 selectPokemon2.addEventListener("click",function(){
+  playerTwoTurn = true;
   activeCardTwo.style.backgroundColor = "yellow";
   getRandomPokemon(player2);
-  console.log(selectPokemon1);
+  if (player2Hand.length === 0){
+    console.log('Player 1 has won!');
+    }
   }
 );
 
 //Function to Start the Pokemon Battle
 var startBattle = document.querySelector("#startBattle");
 startBattle.addEventListener("click",function(){
-var hp1 = parseInt(document.getElementById("hp1").textContent);
-var hp2 = parseInt(document.getElementById("hp2").textContent);
-var attack1 = parseInt(document.getElementById("attack1").textContent);
-var attack2 = parseInt(document.getElementById("attack2").textContent);
+  var hp1 = parseInt(document.getElementById("hp1").textContent);
+  var hp2 = parseInt(document.getElementById("hp2").textContent);
+  var attack1 = parseInt(document.getElementById("attack1").textContent);
+  var attack2 = parseInt(document.getElementById("attack2").textContent);
   
-  while (hp1 > 0 || hp2 > 0)
-  {
-    
-    hp2 -= attack1;
-    var hp2Text = document.getElementById("hp2");
-    hp2Text.textContent = hp2.toString();
-    $('#player2Card').shake()
-    // delay
-    if (hp2 <= 0){
-      hp2Text.textContent = '0';
-      //code for pokemon faint
-      activeCardTwo.style.backgroundColor = "red";
-      checkPlayerCards(player2Hand); // check player deck and remove fainted pokemon
-      console.log(player2Hand);
-      break;
-    }
-
-    hp1 -= attack2;
-    var hp1Text = document.getElementById("hp1");
-    hp1Text.textContent = hp1.toString();
-    $('#player1Card').shake()
-    //delay    
-    if (hp1 <= 0){
-      hp1Text.textContent = '0';
-      activeCardOne.style.backgroundColor = "red";
-      checkPlayerCards(player1Hand); // check player deck and remove fainted pokemon
-      console.log(player1Hand);
-      break;
-    }
+  while (battleON) {
+      if (playerOneTurn === true) {
+        hp2 -= attack1;
+        var hp2Text = document.getElementById("hp2");
+        hp2Text.textContent = hp2.toString();
+        $('#player2Card').shake() // shake card when attacked
+        // delay
+        if (hp2 <= 0){
+          hp2Text.textContent = '0';
+          //code for pokemon faint
+          activeCardTwo.style.backgroundColor = "red";
+          checkPlayerCards(player2Hand); // check player deck and remove fainted pokemon
+          playerOneTurn = false; // reset player turn to false if opponent loses round
+          console.log(player2Hand);
+          break;
+        }
+        hp1 -= attack2;
+        var hp1Text = document.getElementById("hp1");
+        hp1Text.textContent = hp1.toString();
+        $('#player1Card').shake() // shake card when attacked
+        //delay    
+        if (hp1 <= 0){
+          hp1Text.textContent = '0';
+          activeCardOne.style.backgroundColor = "red";
+          checkPlayerCards(player1Hand); // check player deck and remove fainted pokemon
+          playerTwoTurn = false; // reset player turn to false if opponent loses round
+          console.log(player1Hand);
+          break;
+        }
+      } else if (playerTwoTurn === true){
+        hp1 -= attack1;
+        var hp1Text = document.getElementById("hp2");
+        hp1Text.textContent = hp1.toString();
+        $('#player2Card').shake() // shake card when attacked
+        // delay
+        if (hp1 <= 0){
+          hp1Text.textContent = '0';
+          //code for pokemon faint
+          activeCardOne.style.backgroundColor = "red";
+          checkPlayerCards(player1Hand); // check player deck and remove fainted pokemon
+          playerTwoTurn = false; // reset player turn to false if opponent loses round
+          console.log(player1Hand);
+          break;
+        }
+        hp2 -= attack2;
+        var hp2Text = document.getElementById("hp1");
+        hp2Text.textContent = hp2.toString();
+        $('#player1Card').shake() // shake card when attacked
+        //delay    
+        if (hp2 <= 0){
+          hp2Text.textContent = '0';
+          activeCardTwo.style.backgroundColor = "red";
+          checkPlayerCards(player2Hand); // check player deck and remove fainted pokemon
+          playerOneTurn = false; // reset player turn to false if opponent loses round
+          console.log(player2Hand);
+          break;
+        }
+      }
   }
 });
 // To do list
