@@ -91,13 +91,12 @@ function getRandomPokemon(player) {
   }
 
 // Event listener to generate decks
-window.onload=function(){
 var generateDeckEl = document.querySelector("#generateDeck");
 generateDeckEl.addEventListener("click",function(){
     generateHands();
     //hide the deck button;
     console.log(generateDeckEl);
-}
+  }
 );
 
 // Player 1 roll dice and summon pokemon from deck
@@ -106,7 +105,7 @@ selectPokemon1.addEventListener("click",function(){
   bgcolorPlayerCard1.style.backgroundColor = "yellow";
   getRandomPokemon(player1);
   console.log(selectPokemon1);
-}
+  }
 );
 
 // Player 2 roll dice and summon pokemon from deck
@@ -115,50 +114,49 @@ selectPokemon2.addEventListener("click",function(){
   bgcolorPlayerCard2.style.backgroundColor = "yellow";
   getRandomPokemon(player2);
   console.log(selectPokemon1);
-}
+  }
 );
-};
 
 //Function to Start the Pokemon Battle
-  var startBattle = document.querySelector("#startBattle");
-  startBattle.addEventListener("click",function(){
-  var hp1 = parseInt(document.getElementById("hp1").textContent);
-  var hp2 = parseInt(document.getElementById("hp2").textContent);
-  var attack1 = parseInt(document.getElementById("attack1").textContent);
-  var attack2 = parseInt(document.getElementById("attack2").textContent);
+var startBattle = document.querySelector("#startBattle");
+startBattle.addEventListener("click",function(){
+var hp1 = parseInt(document.getElementById("hp1").textContent);
+var hp2 = parseInt(document.getElementById("hp2").textContent);
+var attack1 = parseInt(document.getElementById("attack1").textContent);
+var attack2 = parseInt(document.getElementById("attack2").textContent);
+  
+  while (hp1 > 0 || hp2 > 0)
+  {
     
-    while (hp1 > 0 || hp2 > 0)
-    {
-     
-      hp2 -= attack1;
-      var hp2Text = document.getElementById("hp2");
-      hp2Text.textContent = hp2.toString();
-      // delay
-      if (hp2 <= 0){
-        hp2Text.textContent = '0';
-        //code for pokemon faint
-        bgcolorPlayerCard2.style.backgroundColor = "red";
-        player2Hand.splice((diceResult - 1),1);
-        console.log(player2Hand);
-        break;
+    hp2 -= attack1;
+    var hp2Text = document.getElementById("hp2");
+    hp2Text.textContent = hp2.toString();
+    // delay
+    if (hp2 <= 0){
+      hp2Text.textContent = '0';
+      //code for pokemon faint
+      bgcolorPlayerCard2.style.backgroundColor = "red";
+      player2Hand.splice((diceResult - 1),1);
+      console.log(player2Hand);
+      break;
 
-      }
-      bgcolorPlayerCard1.style.backgroundColor = "yellow";
-      hp1 -= attack2;
-      var hp1Text = document.getElementById("hp1");
-      hp1Text.textContent = hp1.toString();
-      //delay    
-      if (hp1 <= 0){
-        hp1Text.textContent = '0';
-        bgcolorPlayerCard1.style.backgroundColor = "red";
-        player1Hand.splice((diceResult - 1),1);
-        console.log(player1Hand);
-        break;
-      }
-      console.log(hp2Text);
-      console.log(hp1Text);
+    }
+    bgcolorPlayerCard1.style.backgroundColor = "yellow";
+    hp1 -= attack2;
+    var hp1Text = document.getElementById("hp1");
+    hp1Text.textContent = hp1.toString();
+    //delay    
+    if (hp1 <= 0){
+      hp1Text.textContent = '0';
+      bgcolorPlayerCard1.style.backgroundColor = "red";
+      player1Hand.splice((diceResult - 1),1);
+      console.log(player1Hand);
+      break;
+    }
+    console.log(hp2Text);
+    console.log(hp1Text);
 
-    } 
+  } 
   
 });
 // To do list
