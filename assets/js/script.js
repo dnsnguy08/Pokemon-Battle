@@ -122,7 +122,9 @@ var generateDeckEl = document.querySelector("#generateDeck");
 var removeButton = document.querySelector("#remove-button");
 generateDeckEl.addEventListener("click",function(){
     generateHands();
-    removeButton.remove();
+    generateDeckEl.remove();
+    selectPokemon1.style.display = 'block'; // show game buttons after generating deck
+    selectPokemon2.style.display = 'block';
     console.log(generateDeckEl);
   }
 );
@@ -130,11 +132,14 @@ generateDeckEl.addEventListener("click",function(){
 // Player 1 roll dice and summon pokemon from deck
 var selectPokemon1 = document.querySelector("#rollDice1");
 selectPokemon1.addEventListener("click",function(){
-  playerOneTurn = true;
-  selectPokemon1.style.display="none";
+  if (player1Hand.length !== 0) {
+  playerOneTurn = true; // if player dice button is clicked set their next turn as priority
+  selectPokemon1.style.display = 'none'; // hide dice roll button after clicking on it
   activeCardOne.style.backgroundColor = "yellow";
   getRandomPokemon(player1);
-  if (player2Hand.length === 0){
+  startBattle.style.display = 'block';
+  }
+  if (player1Hand.length === 0){
     console.log('Player 2 has won!');
     }
   }
@@ -143,10 +148,13 @@ selectPokemon1.addEventListener("click",function(){
 // Player 2 roll dice and summon pokemon from deck
 var selectPokemon2 = document.querySelector("#rollDice2");
 selectPokemon2.addEventListener("click",function(){
-  playerTwoTurn = true;
-  selectPokemon2.style.display="none";
+  if (player2Hand.length !== 0) {
+  playerTwoTurn = true; // if player dice button is clicked set their next turn as priority
+  selectPokemon2.style.display = 'none'; // hide dice roll button after clicking on it
   activeCardTwo.style.backgroundColor = "yellow";
   getRandomPokemon(player2);
+  startBattle.style.display = 'block';
+  }
   if (player2Hand.length === 0){
     console.log('Player 1 has won!');
     }
@@ -160,7 +168,7 @@ startBattle.addEventListener("click",function(){
   var hp2 = parseInt(document.getElementById("hp2").textContent);
   var attack1 = parseInt(document.getElementById("attack1").textContent);
   var attack2 = parseInt(document.getElementById("attack2").textContent);
-  
+  startBattle.style.display = 'none';
   while (battleON) {
       if (playerOneTurn === true) {
         hp2 -= attack1;
@@ -174,7 +182,7 @@ startBattle.addEventListener("click",function(){
           activeCardTwo.style.backgroundColor = "red";
           checkPlayerCards(player2Hand); // check player deck and remove fainted pokemon
           playerOneTurn = false; // reset player turn to false if opponent loses round
-          selectPokemon2.style.display="block";
+          selectPokemon2.style.display = 'block';
           console.log(player2Hand);
           break;
         }
@@ -188,7 +196,7 @@ startBattle.addEventListener("click",function(){
           activeCardOne.style.backgroundColor = "red";
           checkPlayerCards(player1Hand); // check player deck and remove fainted pokemon
           playerTwoTurn = false; // reset player turn to false if opponent loses round
-          selectPokemon1.style.display="block";
+          selectPokemon1.style.display = 'block';
           console.log(player1Hand);
           break;
         }
@@ -204,7 +212,7 @@ startBattle.addEventListener("click",function(){
           activeCardOne.style.backgroundColor = "red";
           checkPlayerCards(player1Hand); // check player deck and remove fainted pokemon
           playerTwoTurn = false; // reset player turn to false if opponent loses round
-          selectPokemon1.style.display="block";
+          selectPokemon1.style.display = 'block';
           console.log(player1Hand);
           break;
         }
@@ -218,15 +226,15 @@ startBattle.addEventListener("click",function(){
           activeCardTwo.style.backgroundColor = "red";
           checkPlayerCards(player2Hand); // check player deck and remove fainted pokemon
           playerOneTurn = false; // reset player turn to false if opponent loses round
-          selectPokemon2.style.display="block";
+          selectPokemon2.style.display = 'block';
           console.log(player2Hand);
           break;
         }
+      } else {
+        battleON = false;
       }
   }
 });
 // To do list
 //delay
-//hide the button get your decks
-//Adding logic for attack priority
 //Clean up variable names
