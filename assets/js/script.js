@@ -119,9 +119,10 @@ function checkPlayerCards(hand) {
 
 // Event listener to generate decks
 var generateDeckEl = document.querySelector("#generateDeck");
+var removeButton = document.querySelector("#remove-button");
 generateDeckEl.addEventListener("click",function(){
     generateHands();
-    //hide the deck button;
+    removeButton.remove();
     console.log(generateDeckEl);
   }
 );
