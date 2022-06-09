@@ -1,19 +1,22 @@
 body {
     /* placeholder color */
     background-image: url("../images/Kanto.png");
-    background-size:cover;
+    background-size: cover;
 }
-.column{
-    padding:0px;
+
+.column {
+    padding: 0px;
 }
-#titleBar{
-    display:flex;
-    box-shadow: 80px 80px 80px 80px rgba(253, 253, 253,.4) inset, 80px 80px 80px 80px rgba(253, 253, 253,.4); 
-    height:15%;
-    padding-left:25px;
-    padding-right:25px;
-    padding-top:20px;
+
+#titleBar {
+    display: flex;
+    box-shadow: 80px 80px 80px 80px rgba(253, 253, 253, .4) inset, 80px 80px 80px 80px rgba(253, 253, 253, .4);
+    height: 15%;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 20px;
 }
+
 /* .header {
     display: flex;
     max-width:150%;
@@ -21,72 +24,80 @@ body {
     justify-content: space-evenly;
 } */
 #pika {
- height:100%;   
-}
-#pokeBall { 
-   height:65%;
-   box-shadow:  3px 15px 22px 2px rgba(0, 0, 0, 0.5); 
-   border-radius: 80px;
-}
-#winners {
-    box-shadow: 0px 80px 80px 80px rgba(253, 253, 253, 0.28) inset, 80px 80px 80px 80px rgba(0,0,0,.4);
-    color:black;
-    font-weight:900px;
-    text-align: center;
-}
-#scores {
-    /* placeholders to see sizing, positioning & visualization */
-    border:solid;
-    border-width:5px;
-    border-color:rgb(255, 255, 255);
-    
-}
-#winners {
-    /* placeholders to see sizing, positioning & visualization */
-    border:solid;
-    border-width:5px;
-    border-color:rgb(255, 255, 255);
+    height: 100%;
 }
 
-#battleStation{
-    /* placeholders to see sizing, positioning & visualization */
-    box-shadow: 80px 80px 80px 80px white inset, 80px 80px 80px 80px rgba(0,0,0,.4);
-    font-weight:900;
-    width:550px;
+#pokeBall {
+    height: 65%;
+    box-shadow: 3px 15px 22px 2px rgba(0, 0, 0, 0.5);
+    border-radius: 80px;
 }
+
+#winners {
+    box-shadow: 0px 80px 80px 80px rgba(253, 253, 253, 0.28) inset, 80px 80px 80px 80px rgba(0, 0, 0, .4);
+    color: black;
+    font-weight: 900px;
+    text-align: center;
+}
+
+#scores {
+    /* placeholders to see sizing, positioning & visualization */
+    border: solid;
+    border-width: 5px;
+    border-color: rgb(255, 255, 255);
+
+}
+
+#winners {
+    /* placeholders to see sizing, positioning & visualization */
+    border: solid;
+    border-width: 5px;
+    border-color: rgb(255, 255, 255);
+}
+
+#battleStation {
+    /* placeholders to see sizing, positioning & visualization */
+    box-shadow: 80px 80px 80px 80px white inset, 80px 80px 80px 80px rgba(0, 0, 0, .4);
+    font-weight: 900;
+    width: 550px;
+}
+
 #battleStation h2 {
-    font-weight:900;
+    font-weight: 900;
 }
-#currentPlayer{
+
+#currentPlayer {
     /* placeholders to see sizing, positioning & visualization */
-    display:flex;
+    display: flex;
     text-align: center;
     justify-content: center;
-    
+
 }
+
 #currentCards {
-    width:550px;
+    width: 550px;
 }
 
 #player1Card {
-    background-color:yellow;
+    background-color: yellow;
     text-align: center;
-    height:350px;
-    width:250px;
+    height: 350px;
+    width: 250px;
 }
 
 #player2Card {
-    background-color:yellow;
+    background-color: yellow;
     text-align: center;
-    height:350px;
-    width:250px;
+    height: 350px;
+    width: 250px;
 }
 
 #gameButtons {
-display:flex;
-justify-content: space-between;
-border-width:5px;
+    display: flex;
+    justify-content: space-between;
+    border-width: 5px;
 }
+
 /* .hide{
     visibility: hidden;
     position: relative;
@@ -95,13 +106,81 @@ border-width:5px;
     visibility: visible;
     position:absolute;
 } */
-.btlCardback1{
-    height:350px;
-    width:250px;
-    margin:10px;
+
+.btlCardback1 {
+    height: 350px;
+    width: 250px;
+    margin: 10px;
 }
-.btlCardback2{
-    height:350px;
-    width:250px;
-    margin:10px;
+
+.btlCardback2 {
+    height: 350px;
+    width: 250px;
+    margin: 10px;
+}
+/*flip for player 1*/
+.flip-container {
+    background-color: transparent;
+    width: 275px;
+    height: 375px;
+}
+
+.flip-main {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+    width:100%;
+    height:100%;
+}
+
+/*comment out the hover effect to turn off hover*/
+.flip-container:hover .flip-main{
+      transform: rotateY(180deg);
+  }
+
+.flip-top {
+    backface-visibility: hidden;
+    position: absolute;
+    z-index: 2;
+}
+
+.flip-bottom {
+    transform: rotateY(180deg);
+    z-index: 2;
+    position:absolute;
+    backface-visibility: hidden;
+}
+
+/*flip for player 2*/
+.flip-container-2{
+    background-color: transparent;
+    width: 275px;
+    height: 375px;
+
+}
+
+.flip-main-2 {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+    width:100%;
+    height:100%;
+}
+
+/*comment out the hover effect to turn off hover*/
+.flip-container-2:hover .flip-main-2{
+      transform: rotateY(180deg);
+  }
+
+.flip-top-2{
+    backface-visibility: hidden;
+    position: absolute;
+    z-index: 2;
+}
+
+.flip-bottom-2{
+    transform: rotateY(180deg);
+    position:relative;
+    backface-visibility: hidden;
+    
 }
