@@ -142,6 +142,17 @@ generateDeckEl.addEventListener("click",function(){
   }
 );
 
+//Local storage for winners.
+const storageInput = document.querySelector('.storage');
+const text = document.querySelector('.text');
+const button = document.querySelector('.button');
+storageInput.addEventListener('input', letter => {
+  text.textContent = letter.target.value
+});
+const saveToLocalStorage = () => {
+  localStorage.setItem('textinput', text.textContent)
+};
+button.addEventListener('click',saveToLocalStorage);
 // Player 1 roll dice and summon pokemon from deck
 var selectPokemon1 = document.querySelector("#rollDice1");
 selectPokemon1.addEventListener("click",function(){
@@ -151,8 +162,10 @@ selectPokemon1.addEventListener("click",function(){
   activeCardOne.style.backgroundColor = "yellow";
   getRandomPokemon(player1);
   startBattle.style.display = 'block';
+
   }
   if (player1Hand.length === 0){
+    container.style.display = 'block';
     console.log('Player 2 has won!');
     }
   }
@@ -160,6 +173,7 @@ selectPokemon1.addEventListener("click",function(){
 
 // Player 2 roll dice and summon pokemon from deck
 var selectPokemon2 = document.querySelector("#rollDice2");
+var container = document.querySelector('.container');
 selectPokemon2.addEventListener("click",function(){
   if (player2Hand.length !== 0) {
   playerTwoTurn = true; // if player dice button is clicked set their next turn as priority
@@ -169,6 +183,7 @@ selectPokemon2.addEventListener("click",function(){
   startBattle.style.display = 'block';
   }
   if (player2Hand.length === 0){
+    container.style.display = 'block';
     console.log('Player 1 has won!');
     }
   }
@@ -176,6 +191,7 @@ selectPokemon2.addEventListener("click",function(){
 
 //Function to Start the Pokemon Battle
 var startBattle = document.querySelector("#startBattle");
+
 startBattle.addEventListener("click",function(){
   var hp1 = parseInt(document.getElementById("hp1").textContent);
   var hp2 = parseInt(document.getElementById("hp2").textContent);
