@@ -119,9 +119,10 @@ function checkPlayerCards(hand) {
 
 // Event listener to generate decks
 var generateDeckEl = document.querySelector("#generateDeck");
+var removeButton = document.querySelector("#remove-button");
 generateDeckEl.addEventListener("click",function(){
     generateHands();
-    //hide the deck button;
+    removeButton.remove();
     console.log(generateDeckEl);
   }
 );
@@ -130,6 +131,7 @@ generateDeckEl.addEventListener("click",function(){
 var selectPokemon1 = document.querySelector("#rollDice1");
 selectPokemon1.addEventListener("click",function(){
   playerOneTurn = true;
+  selectPokemon1.style.display="none";
   activeCardOne.style.backgroundColor = "yellow";
   getRandomPokemon(player1);
   if (player2Hand.length === 0){
@@ -142,6 +144,7 @@ selectPokemon1.addEventListener("click",function(){
 var selectPokemon2 = document.querySelector("#rollDice2");
 selectPokemon2.addEventListener("click",function(){
   playerTwoTurn = true;
+  selectPokemon2.style.display="none";
   activeCardTwo.style.backgroundColor = "yellow";
   getRandomPokemon(player2);
   if (player2Hand.length === 0){
@@ -171,6 +174,7 @@ startBattle.addEventListener("click",function(){
           activeCardTwo.style.backgroundColor = "red";
           checkPlayerCards(player2Hand); // check player deck and remove fainted pokemon
           playerOneTurn = false; // reset player turn to false if opponent loses round
+          selectPokemon2.style.display="block";
           console.log(player2Hand);
           break;
         }
@@ -184,6 +188,7 @@ startBattle.addEventListener("click",function(){
           activeCardOne.style.backgroundColor = "red";
           checkPlayerCards(player1Hand); // check player deck and remove fainted pokemon
           playerTwoTurn = false; // reset player turn to false if opponent loses round
+          selectPokemon1.style.display="block";
           console.log(player1Hand);
           break;
         }
@@ -199,6 +204,7 @@ startBattle.addEventListener("click",function(){
           activeCardOne.style.backgroundColor = "red";
           checkPlayerCards(player1Hand); // check player deck and remove fainted pokemon
           playerTwoTurn = false; // reset player turn to false if opponent loses round
+          selectPokemon1.style.display="block";
           console.log(player1Hand);
           break;
         }
@@ -212,6 +218,7 @@ startBattle.addEventListener("click",function(){
           activeCardTwo.style.backgroundColor = "red";
           checkPlayerCards(player2Hand); // check player deck and remove fainted pokemon
           playerOneTurn = false; // reset player turn to false if opponent loses round
+          selectPokemon2.style.display="block";
           console.log(player2Hand);
           break;
         }
