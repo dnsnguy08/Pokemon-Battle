@@ -12,8 +12,12 @@ var pickPokemon; // variable for random pokemon when dice index is undefined in 
 var battleON = true; // Bool indicating battle round has been triggered
 var playerOneTurn = false; // Bool variables to determine priority of player turns
 var playerTwoTurn = false; //
-var getPokemon; // get random pokemon is dice roll index is undefined for player hand
+var getPokemon;
+// var battlecardplayer1 = document.getElementById("btlCardback1");
+// var battlecardplayer2 = document.getElementById("btlCardback2");
 
+// activeCardOne.style.display = "none";
+// activeCardTwo.style.display = "none";
 // Function for randomizing player1 and player 2 decks to choose Pokemon from
 function generateHands() {
   for (let i = 0; i < 6; i++) {
@@ -133,6 +137,7 @@ function checkPlayerCards(hand, player) {
 
 // Event listener to generate decks
 var generateDeckEl = document.querySelector("#generateDeck");
+
 var removeButton = document.querySelector("#remove-button");
 generateDeckEl.addEventListener("click",function(){
     generateHands();
@@ -145,6 +150,10 @@ generateDeckEl.addEventListener("click",function(){
 // Player 1 roll dice and summon pokemon from deck
 var selectPokemon1 = document.querySelector("#rollDice1");
 selectPokemon1.addEventListener("click",function(){
+  // btlCardback1.style.display = 'none';
+  // // btlCardback2.style.display = 'none';
+  // activeCardOne.style.display = 'block';
+  // // activeCardTwo.style.display = 'block';
   if (player1Hand.length !== 0) {
   playerOneTurn = true; // if player dice button is clicked set their next turn as priority
   selectPokemon1.style.display = 'none'; // hide dice roll button after clicking on it
