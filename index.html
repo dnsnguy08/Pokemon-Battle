@@ -36,7 +36,7 @@
 
     <!---Scores + Winner tracking container -->
     <div class="column is-one-fifth is-offset-2">
-      <div class="columns" >
+      <div class="columns">
         <div class="column" id="winners">
           <h2>Winners</h2>
           <p class="past-winners"></p>
@@ -62,33 +62,53 @@
           <h2>Player 2</h2>
         </div>
       </div>
+
       <div class="columns" id="currentCards">
         <div class="hide">
           <img class="btlCardback1" src="assets/images/cardback.png" alt=" Picture of a Pokemon card back">
 
-          <div class="column">
-            <div class="card" id="player1Card">
-              <p>name: <span id="name1"></span></p>
-              <p>type: <span id="types1"></span></p>
-              <p>hp: <span id="hp1"></span></p>
-              <p>attack: <span id="attack1"></span></p>
-              <img src="" id="img1" alt="Picture of a Pokemon">
+      <div class="columns" id="currentCards">
+        <div class="column">
+        <div id="flip-card-1">
+          <div class="flip-main">
+            <div class="flip-top">
+              <img class="btlCardback1" src="assets/images/cardback.png" alt="">
+            </div>
+            <div class="flip-bottom">
+              <div class="card" id="player1Card">
+                <p>name: <span id="name1"></span></p>
+                <p>type: <span id="types1"></span></p>
+                <p>hp: <span id="hp1"></span></p>
+                <p>attack: <span id="attack1"></span></p>
+                <img src="" id="img1" alt="Picture of a Pokemon">
+              </div>
             </div>
           </div>
         </div>
+      </div>
+
         <div class="hide">
           <img class="btlCardback2" src="assets/images/cardback.png" alt=" Picture of a Pokemon card back">
 
-          <div class="column">
-            <div class="card" id="player2Card">
-              <p>name: <span id="name2"></span></p>
-              <p>type: <span id="types2"></span></p>
-              <p>hp: <span id="hp2"></span></p>
-              <p>attack: <span id="attack2"></span></p>
-              <img src="" id="img2" alt="Picture of a Pokemon">
+      <div class="column">
+        <div id="flip-card-2">
+          <div class="flip-main-2">
+            <div class="flip-top-2">
+              <img class="btlCardback2" src="assets/images/cardback.png" alt="">
+            </div>
+            <div class="flip-bottom-2">
+              <div class="card" id="player2Card">
+                <p>name: <span id="name2"></span></p>
+                <p>type: <span id="types2"></span></p>
+                <p>hp: <span id="hp2"></span></p>
+                <p>attack: <span id="attack2"></span></p>
+                <img src="" id="img2" alt="Picture of a Pokemon">
+              </div>
             </div>
           </div>
         </div>
+      </div>
+      
       </div>
       <div class="columns is-vcentered m-2" id="gameButtons">
         <!---Roll Dice button-->
@@ -146,6 +166,7 @@
             <div class="card"><img id="pic24" src="assets/images/cardback.png" alt =" Picture of a Pokemon card back"></div>
           </div>
           <div class="column">
+            <div class="card"><img id="pic25" src="assets/images/cardback.png"></div>
             <div class="card"><img id="pic25"src="assets/images/cardback.png" alt =" Picture of a Pokemon card back"></div>
           </div>
         </div>
@@ -157,10 +178,8 @@
     </div>
 
   </div>
-  <script
-  src="https://code.jquery.com/jquery-3.6.0.slim.js"
-  integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
-  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
+    integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
   <script src="assets/js/shake.js"></script>
   <script src="assets/js/script.js"></script>
 </body>
