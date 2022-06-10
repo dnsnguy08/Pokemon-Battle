@@ -50,9 +50,9 @@ body {
 
 #winners {
     /* placeholders to see sizing, positioning & visualization */
-    border: solid;
-    border-width: 5px;
-    border-color: rgb(255, 255, 255);
+    border:solid;
+    border-width:5px;
+    /* border-color:rgb(255, 255, 255); */
 }
 
 #battleStation {
@@ -60,6 +60,7 @@ body {
     box-shadow: 80px 80px 80px 80px white inset, 80px 80px 80px 80px rgba(0, 0, 0, .4);
     font-weight: 900;
     width: 550px;
+    box-shadow: inset -4px -4px #adafbc;
 }
 
 #battleStation h2 {
@@ -110,13 +111,15 @@ body {
 .btlCardback1 {
     height: 350px;
     width: 250px;
-    margin: 10px;
+    margin-left:-15px;
+    padding:5px;
 }
 
 .btlCardback2 {
     height: 350px;
     width: 250px;
-    margin: 10px;
+    margin-right:-15px;
+    padding:5px;
 }
 /*flip for player 1*/
 .flip-container {

@@ -12,8 +12,6 @@
   <title>Pokemon War!</title>
 </head>
 
-
-
 <body>
   <!-- Title & Icon Bar -->
   <div class="columns is-vcentered" id="titleBar">
@@ -28,16 +26,13 @@
       <img class="image is-pulled-right is-flex-shrink-2" id="pokeBall" src="assets/images/pokeball.png">
     </div>
   </div>
-
-
-
   <!-- For scores & battle station container - justifies row -->
   <div class="columns mx-auto is-vcentered p-3 mx-3 mt-2">
 
     <!---Scores + Winner tracking container -->
-    <div class="column is-one-fifth is-offset-2">
-      <div class="columns">
-        <div class="column" id="winners">
+    <div class="nes-btn column is-one-fifth is-offset-2">
+      <div class="columns" >
+        <div class="nes-btn column" id="winners">
           <h2>Winners</h2>
           <p class="past-winners"></p>
            <div class="container">
@@ -48,18 +43,17 @@
         </div>
       </div>
     </div>
-
-
-
     <!-- Battle Station -->
-    <div class="column is-two-fifths is-offset-2" id="battleStation">
+    <div class="column is-two-fifths is-offset-2 nes-container is-rounded" id="battleStation">
 
       <div class="columns" id="currentPlayer">
         <div class="column" id="player1">
-          <h2>Player 1</h2>
+          <!--<h2>Player 1</h2-->
+          <img src="assets/images/player 1.png" alt="pixelated text showing player 1">
         </div>
         <div class="column" id="player2">
-          <h2>Player 2</h2>
+          <!--h2>Player 2</h2-->
+          <img src="assets/images/player 2.png" alt="pixelated text showing player 2">
         </div>
       </div>
 
@@ -100,6 +94,7 @@
             </div>
           </div>
         </div>
+
       </div>
       
       </div>
