@@ -6,11 +6,14 @@ const player2Hand = [];
 const max = 151; // Game using only 151 original Pokemon
 var activeCardTwo = document.getElementById("player2Card");
 var activeCardOne = document.getElementById("player1Card");
-var diceResult;
+var diceResult1; // player 1 dice roll result
+var diceResult2; // player 2 dice roll result
 var pickPokemon; // variable for random pokemon when dice index is undefined in player decks
 var battleON = true; // Bool indicating battle round has been triggered
 var playerOneTurn = false; // Bool variables to determine priority of player turns
 var playerTwoTurn = false; //
+var getPokemon; // get random pokemon is dice roll index is undefined for player hand
+var flipCard = document.querySelector("flipCard");
 
 // Function for randomizing player1 and player 2 decks to choose Pokemon from
 function generateHands() {
@@ -20,8 +23,6 @@ function generateHands() {
     var pickPokemon2 = Math.floor(Math.random() * max);
     player2Hand[i] = pickPokemon2;
   }
-  console.log(player1Hand);
-  console.log(player2Hand);
   // Display pokemon images in player deck cards
   for (let i = 0; i < player1Hand.length; i++) {
     var api_url = `https://pokeapi.co/api/v2/pokemon/${player1Hand[i]}`;
@@ -65,27 +66,28 @@ function getRandomPokemon(player) {
   .then(function(response){
     return response.json();
   })
-  .then(function(data){
-    diceResult = data.data.Dice
-    console.log(`dice roll: ${diceResult}`);
-    console.log(`hand index: ${diceResult -1}`);
+  .then(function(data){ // store dice roll results based on player
+    if (player === 1) {
+      diceResult1 = data.data.Dice
+    }
+    if (player === 2) {
+      diceResult2 = data.data.Dice
+    }
     
-    if (player === 1 && player1Hand[diceResult-1] === undefined) {
+    if (player === 1 && player1Hand[diceResult1-1] === undefined) {
       pickPokemon = Math.floor(Math.random() * player1Hand.length); // randomize pokemon summon if dice roll index does not apply
-      let getPokemon = player1Hand[pickPokemon];
-      console.log(getPokemon);
+      getPokemon = player1Hand[pickPokemon];
       var api_url = `https://pokeapi.co/api/v2/pokemon/${getPokemon}`; // Create API call based on remaining pokemon in player hand
     } else if (player === 1) {
-      var api_url = `https://pokeapi.co/api/v2/pokemon/${player1Hand[diceResult-1]}`; // Create API call based on dice roll result
+      var api_url = `https://pokeapi.co/api/v2/pokemon/${player1Hand[diceResult1-1]}`; // Create API call based on dice roll result
     }
 
-    if (player === 2 && player2Hand[diceResult-1] === undefined) {
+    if (player === 2 && player2Hand[diceResult2-1] === undefined) {
       pickPokemon = Math.floor(Math.random() * player2Hand.length)
-      let getPokemon = player2Hand[pickPokemon];
-      console.log(getPokemon);
+      getPokemon = player2Hand[pickPokemon];
       var api_url = `https://pokeapi.co/api/v2/pokemon/${getPokemon}`; // Create API call based on remaining pokemon in player hand
     } else if (player === 2) {
-      var api_url = `https://pokeapi.co/api/v2/pokemon/${player2Hand[diceResult-1]}`; // Create API call based on dice roll result
+      var api_url = `https://pokeapi.co/api/v2/pokemon/${player2Hand[diceResult2-1]}`; // Create API call based on dice roll result
     }
 
     fetch(api_url, { // Fetch pokemon data based on dice roll
@@ -93,7 +95,7 @@ function getRandomPokemon(player) {
       .then(function(response){
       return response.json();
     })
-      .then(function(data){ // apply pokemon stats an image to the page
+      .then(function(data){ // apply pokemon stats and image to the page
         let pokeName = data.name;
         let pokeType = data.types[0].type.name;
         let hp = data.stats[0].base_stat;
@@ -109,11 +111,24 @@ function getRandomPokemon(player) {
   }
 
 // Function for removing fainted pokemon from player hands
-function checkPlayerCards(hand) {
-    if (hand[diceResult-1] === undefined) {
-      hand.splice(pickPokemon)
+function checkPlayerCards(hand, player) {
+  if (player === 1) {
+    if (hand[diceResult1-1] === undefined) {
+      // let indexString = getPokemon.toString(); // assign pokemon number to a string
+      let index = hand.indexOf(getPokemon); // get the index of the pokemon number string
+      hand.splice(index, 1); // remove the pokemon's index from player hand
     } else {
-      hand.splice((diceResult-1),1);
+      hand.splice((diceResult1-1),1);
+    }
+  }
+    if (player === 2) {
+      if (hand[diceResult2-1] === undefined) {
+        // let indexString = getPokemon.toString(); // assign pokemon number to a string
+        let index = hand.indexOf(getPokemon); // get the index of the pokemon number string
+        hand.splice(index, 1); // remove the pokemon's index from player hand
+      } else {
+        hand.splice((diceResult2-1),1);
+      }
     }
 }
 
@@ -128,6 +143,17 @@ generateDeckEl.addEventListener("click",function(){
   }
 );
 
+//Local storage for winners.
+const storageInput = document.querySelector('.storage');
+const text = document.querySelector('.text');
+const button = document.querySelector('.button');
+storageInput.addEventListener('input', letter => {
+  text.textContent = letter.target.value
+});
+const saveToLocalStorage = () => {
+  localStorage.setItem('textinput', text.textContent)
+};
+button.addEventListener('click',saveToLocalStorage);
 // Player 1 roll dice and summon pokemon from deck
 var selectPokemon1 = document.querySelector("#rollDice1");
 selectPokemon1.addEventListener("click",function(){
@@ -137,15 +163,26 @@ selectPokemon1.addEventListener("click",function(){
   activeCardOne.style.backgroundColor = "yellow";
   getRandomPokemon(player1);
   startBattle.style.display = 'block';
+
   }
   if (player1Hand.length === 0){
+    container.style.display = 'block';
     console.log('Player 2 has won!');
     }
   }
 );
 
+$(".flipCard").addClass("flipContainer");
+$(document).on("click", ".flipContainer",function(){
+  $(this).toggleClass()
+})
+
+
+
+
 // Player 2 roll dice and summon pokemon from deck
 var selectPokemon2 = document.querySelector("#rollDice2");
+var container = document.querySelector('.container');
 selectPokemon2.addEventListener("click",function(){
   if (player2Hand.length !== 0) {
   playerTwoTurn = true; // if player dice button is clicked set their next turn as priority
@@ -155,6 +192,7 @@ selectPokemon2.addEventListener("click",function(){
   startBattle.style.display = 'block';
   }
   if (player2Hand.length === 0){
+    container.style.display = 'block';
     console.log('Player 1 has won!');
     }
   }
@@ -162,6 +200,7 @@ selectPokemon2.addEventListener("click",function(){
 
 //Function to Start the Pokemon Battle
 var startBattle = document.querySelector("#startBattle");
+
 startBattle.addEventListener("click",function(){
   var hp1 = parseInt(document.getElementById("hp1").textContent);
   var hp2 = parseInt(document.getElementById("hp2").textContent);
@@ -169,43 +208,60 @@ startBattle.addEventListener("click",function(){
   var attack2 = parseInt(document.getElementById("attack2").textContent);
   startBattle.style.display = 'none';
   while (battleON) {
-      if (playerOneTurn === true) {
+    if (playerOneTurn === true) { // player 1 pokemon attacks first if true
         hp2 -= attack1;
+        playerOneTurn = false; //reset opponent turn to false after an attack
         var hp2Text = document.getElementById("hp2");
         hp2Text.textContent = hp2.toString();
         $('#player2Card').shake() // shake card when attacked
-        // delay
         if (hp2 <= 0){
           hp2Text.textContent = '0';
-          //code for pokemon faint
           activeCardTwo.style.backgroundColor = "red";
-          checkPlayerCards(player2Hand); // check player deck and remove fainted pokemon
-          playerOneTurn = false; //reset opponent turn to false if player loses round
+          checkPlayerCards(player2Hand, 2); // check player deck and remove fainted pokemon
           selectPokemon2.style.display = 'block';
-          console.log(player2Hand);
           break;
         }
-      } else if (playerTwoTurn === true){
+
         hp1 -= attack2;
+        playerTwoTurn = false; //reset opponent turn to false after an attack
         var hp1Text = document.getElementById("hp1");
         hp1Text.textContent = hp1.toString();
         $('#player1Card').shake() // shake card when attacked
-        // delay
         if (hp1 <= 0){
           hp1Text.textContent = '0';
-          //code for pokemon faint
           activeCardOne.style.backgroundColor = "red";
-          checkPlayerCards(player1Hand); // check player deck and remove fainted pokemon
-          playerTwoTurn = false; // reset opponent turn to false if player loses round
+          checkPlayerCards(player1Hand, 1); // check player deck and remove fainted pokemon
           selectPokemon1.style.display = 'block';
-          console.log(player1Hand);
+         break;
+        }
+    }
+    if (playerTwoTurn === true) { // player 2 pokemon attacks first if true
+        hp1 -= attack2;
+        playerTwoTurn = false; //reset opponent turn to false after an attack
+        var hp1Text = document.getElementById("hp1");
+        hp1Text.textContent = hp1.toString();
+        $('#player1Card').shake() // shake card when attacked
+        if (hp1 <= 0){
+          hp1Text.textContent = '0';
+          activeCardOne.style.backgroundColor = "red";
+          checkPlayerCards(player1Hand, 1); // check player deck and remove fainted pokemon
+          selectPokemon1.style.display = 'block';
+          break;
+      }
+        hp2 -= attack1;
+        playerOneTurn = false; //reset opponent turn to false after an attack
+        var hp2Text = document.getElementById("hp2");
+        hp2Text.textContent = hp2.toString();
+        $('#player2Card').shake() // shake card when attacked
+        if (hp2 <= 0){
+          hp2Text.textContent = '0';
+          activeCardTwo.style.backgroundColor = "red";
+          checkPlayerCards(player2Hand, 2); // check player deck and remove fainted pokemon
+          selectPokemon2.style.display = 'block';
           break;
         }
-      } else {
-        battleON = false;
       }
   }
 });
 // To do list
-//delay
 //Clean up variable names
