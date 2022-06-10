@@ -4,8 +4,8 @@ const player2 = 2;
 const player1Hand = [];
 const player2Hand = [];
 const max = 151; // Game using only 151 original Pokemon
-var activeCardTwo = document.getElementById("player2Card");
-var activeCardOne = document.getElementById("player1Card");
+const activeCardTwo = document.getElementById("player2Card");
+const activeCardOne = document.getElementById("player1Card");
 var diceResult1; // player 1 dice roll result
 var diceResult2; // player 2 dice roll result
 var pickPokemon; // variable for random pokemon when dice index is undefined in player decks
@@ -31,7 +31,7 @@ function generateHands() {
       return response.json();
     })
       .then(function(data){ // apply pokemon image to player deck card
-        let icon = data.sprites.other["official-artwork"].front_default;
+        var icon = data.sprites.other["official-artwork"].front_default;
         document.querySelector(`#pic1${i}`).src = icon;
       })
     }
@@ -43,7 +43,7 @@ function generateHands() {
       return response.json();
     })
       .then(function(data){ // apply pokemon image to player deck card
-        let icon = data.sprites.other["official-artwork"].front_default;
+        var icon = data.sprites.other["official-artwork"].front_default;
         document.querySelector(`#pic2${i}`).src = icon;
       })
     }
@@ -150,6 +150,7 @@ selectPokemon1.addEventListener("click",function(){
   selectPokemon1.style.display = 'none'; // hide dice roll button after clicking on it
   activeCardOne.style.backgroundColor = "yellow";
   getRandomPokemon(player1);
+  $("#flip-card-1").addClass("flip-container");
   startBattle.style.display = 'block';
   }
   if (player1Hand.length === 0){
@@ -166,6 +167,7 @@ selectPokemon2.addEventListener("click",function(){
   selectPokemon2.style.display = 'none'; // hide dice roll button after clicking on it
   activeCardTwo.style.backgroundColor = "yellow";
   getRandomPokemon(player2);
+  $("#flip-card-2").addClass("flip-container-2");
   startBattle.style.display = 'block';
   }
   if (player2Hand.length === 0){
