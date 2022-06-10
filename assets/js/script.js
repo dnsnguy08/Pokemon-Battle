@@ -145,6 +145,7 @@ generateDeckEl.addEventListener("click",function(){
   }
 );
 
+
 //Local storage for winners.
 const storageInput = document.querySelector('.storage');
 const text = document.querySelector('.text');
@@ -153,9 +154,25 @@ storageInput.addEventListener('input', letter => {
   text.textContent = letter.target.value
 });
 const saveToLocalStorage = () => {
-  localStorage.setItem('textinput', text.textContent)
+  const textContent = text.textContent;
+  const allWinners = JSON.parse(localStorage.getItem('allWinners'));
+  if (allWinners === null) {
+   localStorage.setItem('allWinners', JSON.stringify([textContent]));
+  } else {
+    allWinners.push(textContent)
+    localStorage.setItem('allWinners',JSON.stringify(allWinners))
+  }
 };
 button.addEventListener('click',saveToLocalStorage);
+const allWinners = JSON.parse(localStorage.getItem("allWinners"));
+//list winner
+window.onload = function (){
+allWinners.forEach(winner => {
+  let newListItem = document.createElement("li");
+  newListItem.innerHTML=winner;
+  document.querySelector("#past-winners").appendChild(newListItem);
+})
+}
 
 // Player 1 roll dice and summon pokemon from deck
 var selectPokemon1 = document.querySelector("#rollDice1");
