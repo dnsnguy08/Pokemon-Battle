@@ -12,10 +12,8 @@ var pickPokemon; // variable for random pokemon when dice index is undefined in 
 var battleON = true; // Bool indicating battle round has been triggered
 var playerOneTurn = false; // Bool variables to determine priority of player turns
 var playerTwoTurn = false; //
-var getPokemon;
-// var battlecardplayer1 = document.getElementById("btlCardback1");
-// var battlecardplayer2 = document.getElementById("btlCardback2");
-
+var getPokemon; // get random pokemon is dice roll index is undefined for player hand
+var flipCard = document.querySelector("flipCard");
 // activeCardOne.style.display = "none";
 // activeCardTwo.style.display = "none";
 // Function for randomizing player1 and player 2 decks to choose Pokemon from
@@ -167,6 +165,14 @@ selectPokemon1.addEventListener("click",function(){
     }
   }
 );
+
+$(".flipCard").addClass("flipContainer");
+$(document).on("click", ".flipContainer",function(){
+  $(this).toggleClass()
+})
+
+
+
 
 // Player 2 roll dice and summon pokemon from deck
 var selectPokemon2 = document.querySelector("#rollDice2");
