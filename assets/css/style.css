@@ -182,9 +182,5 @@ body {
     transform: rotateY(180deg);
     position:relative;
     backface-visibility: hidden;
-}
-
-.container{
-    display: none;
-
+    
 }
