@@ -13,6 +13,7 @@ var battleON = true; // Bool indicating battle round has been triggered
 var playerOneTurn = false; // Bool variables to determine priority of player turns
 var playerTwoTurn = false; //
 var getPokemon; // get random pokemon is dice roll index is undefined for player hand
+var flipCard = document.querySelector("flipCard");
 
 // Function for randomizing player1 and player 2 decks to choose Pokemon from
 function generateHands() {
@@ -158,6 +159,14 @@ selectPokemon1.addEventListener("click",function(){
     }
   }
 );
+
+$(".flipCard").addClass("flipContainer");
+$(document).on("click", ".flipContainer",function(){
+  $(this).toggleClass()
+})
+
+
+
 
 // Player 2 roll dice and summon pokemon from deck
 var selectPokemon2 = document.querySelector("#rollDice2");
