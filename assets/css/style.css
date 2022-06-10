@@ -119,13 +119,13 @@ body {
     margin: 10px;
 }
 /*flip for player 1*/
-#flipCard1{
+.flip-container {
     background-color: transparent;
     width: 275px;
     height: 375px;
 }
 
-.flipMain1 {
+.flip-main {
     transition: transform 0.6s;
     transform-style: preserve-3d;
     position: relative;
@@ -134,32 +134,32 @@ body {
 }
 
 /*comment out the hover effect to turn off hover*/
-.flip-container:hover .flip-main{
+.flip-container .flip-main{
       transform: rotateY(180deg);
   }
 
-.flipTop1 {
+.flip-top {
     backface-visibility: hidden;
     position: absolute;
     z-index: 2;
 }
 
-.flipBottom1 {
+.flip-bottom {
     transform: rotateY(180deg);
     z-index: 2;
     position:absolute;
     backface-visibility: hidden;
 }
 
-
-#flipCard2{
+/*flip for player 2*/
+.flip-container-2{
     background-color: transparent;
     width: 275px;
     height: 375px;
 
 }
 
-.flipMain2 {
+.flip-main-2 {
     transition: transform 0.6s;
     transform-style: preserve-3d;
     position: relative;
@@ -167,18 +167,18 @@ body {
     height:100%;
 }
 
-/*comment out the hover effect to turn off hover
-.flip-container-2:hover .flip-main-2{
+/*comment out the hover effect to turn off hover*/
+.flip-container-2 .flip-main-2{
       transform: rotateY(180deg);
-  }*/
+  }
 
-.flipTop2{
+.flip-top-2{
     backface-visibility: hidden;
     position: absolute;
     z-index: 2;
 }
 
-.flipBottom2{
+.flip-bottom-2{
     transform: rotateY(180deg);
     position:relative;
     backface-visibility: hidden;
