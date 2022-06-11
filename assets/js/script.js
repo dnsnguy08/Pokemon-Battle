@@ -33,6 +33,7 @@ const saveToLocalStorage = () => {
     allWinners.push(textContent)
     localStorage.setItem('allWinners',JSON.stringify(allWinners))
   }
+  location.reload();
 };
 button.addEventListener('click',saveToLocalStorage);
 const allWinners = JSON.parse(localStorage.getItem("allWinners"));
@@ -201,6 +202,7 @@ selectPokemon1.addEventListener("click",function(){
   if (player1Hand.length === 0){
     container.style.display = 'block';
     console.log('Player 2 has won!');
+    Player2winner.style.display="block";
     hideStatPlayer2.style.display ="none";
     }
   }
@@ -226,6 +228,7 @@ selectPokemon2.addEventListener("click",function(){
   if (player2Hand.length === 0){
     container.style.display = 'block';
     console.log('Player 1 has won!');
+    Player1winner.style.display="block";
     hideStatPlayer1.style.display ="none";
     }
   }
@@ -239,11 +242,11 @@ startBattle.addEventListener("click",function(){
   var attack1 = parseInt(document.getElementById("attack1").textContent);
   var attack2 = parseInt(document.getElementById("attack2").textContent);
   startBattle.style.display = 'none';
-  Player1winner.style.display ="none";
-  hideStatPlayer1.style.display="block";
-  Player2winner.style.display="none";
-  hideStatPlayer2.style.display="block";
-  while (player1Hand.length >= 0 && player2Hand.length >= 0){
+  // Player1winner.style.display ="none";
+  // hideStatPlayer1.style.display="block";
+  // Player2winner.style.display="none";
+  // hideStatPlayer2.style.display="block";
+  while (player1Hand.length > 0 && player2Hand.length > 0){
     console.log(player1Hand.length, player2Hand.length)
     if (playerOneTurn === true) { // player 1 pokemon attacks first if true
         hp2 -= attack1;
@@ -254,8 +257,8 @@ startBattle.addEventListener("click",function(){
         if (hp2 <= 0){
           hp2Text.textContent = '0';
           activeCardTwo.style.backgroundColor = "red";
-          Player1winner.style.display ="block";
-          hideStatPlayer1.style.display="none";
+          // Player1winner.style.display ="block";
+          // hideStatPlayer1.style.display="none";
           checkPlayerCards(player2Hand, 2); // check player deck and remove fainted pokemon
           selectPokemon2.style.display = 'block';
           break;
@@ -269,8 +272,8 @@ startBattle.addEventListener("click",function(){
         if (hp1 <= 0){
           hp1Text.textContent = '0';
           activeCardOne.style.backgroundColor = "red";
-          Player2winner.style.display ="block";
-          hideStatPlayer2.style.display="none";
+          // Player2winner.style.display ="block";
+          // hideStatPlayer2.style.display="none";
           checkPlayerCards(player1Hand, 1); // check player deck and remove fainted pokemon
           selectPokemon1.style.display = 'block';
          break;
