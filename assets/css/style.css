@@ -65,6 +65,8 @@ body {
 
 #battleStation h2 {
     font-weight: 900;
+    font-size:22px;
+    text-align: center;
 }
 
 #currentPlayer {
@@ -186,4 +188,12 @@ body {
     position:relative;
     backface-visibility: hidden;
     
+}
+#player1{
+    text-align: center;
+
+}
+#player2{
+    text-align: center;
+
 }
