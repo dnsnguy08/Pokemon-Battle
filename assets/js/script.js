@@ -145,35 +145,6 @@ generateDeckEl.addEventListener("click",function(){
   }
 );
 
-
-//Local storage for winners.
-const storageInput = document.querySelector('.storage');
-const text = document.querySelector('.text');
-const button = document.querySelector('.button');
-storageInput.addEventListener('input', letter => {
-  text.textContent = letter.target.value
-});
-const saveToLocalStorage = () => {
-  const textContent = text.textContent;
-  const allWinners = JSON.parse(localStorage.getItem('allWinners'));
-  if (allWinners === null) {
-   localStorage.setItem('allWinners', JSON.stringify([textContent]));
-  } else {
-    allWinners.push(textContent)
-    localStorage.setItem('allWinners',JSON.stringify(allWinners))
-  }
-};
-button.addEventListener('click',saveToLocalStorage);
-const allWinners = JSON.parse(localStorage.getItem("allWinners"));
-//list winner
-window.onload = function (){
-allWinners.forEach(winner => {
-  let newListItem = document.createElement("li");
-  newListItem.innerHTML=winner;
-  document.querySelector("#past-winners").appendChild(newListItem);
-})
-}
-
 // Player 1 roll dice and summon pokemon from deck
 var selectPokemon1 = document.querySelector("#rollDice1");
 selectPokemon1.addEventListener("click",function(){
@@ -190,7 +161,6 @@ selectPokemon1.addEventListener("click",function(){
   startBattle.style.display = 'block';
   }
   if (player1Hand.length === 0){
-    container.style.display = 'block';
     console.log('Player 2 has won!');
     }
   }
@@ -206,7 +176,6 @@ $(document).on("click", ".flipContainer",function(){
 
 // Player 2 roll dice and summon pokemon from deck
 var selectPokemon2 = document.querySelector("#rollDice2");
-var container = document.querySelector('.container');
 selectPokemon2.addEventListener("click",function(){
   if (player2Hand.length !== 0) {
   playerTwoTurn = true; // if player dice button is clicked set their next turn as priority
@@ -217,7 +186,6 @@ selectPokemon2.addEventListener("click",function(){
   startBattle.style.display = 'block';
   }
   if (player2Hand.length === 0){
-    container.style.display = 'block';
     console.log('Player 1 has won!');
     }
   }
