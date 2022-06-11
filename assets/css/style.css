@@ -200,6 +200,15 @@ body {
     text-align: center;
 
 }
+<<<<<<< Updated upstream
 .container{
     display: none;
 } 
+=======
+.Player1winner{
+    display:none;
+}
+.Player2winner{
+    display:none;
+}
+>>>>>>> Stashed changes
