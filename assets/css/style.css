@@ -200,3 +200,6 @@ body {
     text-align: center;
 
 }
+.container{
+    display: none;
+} 
