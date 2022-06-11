@@ -124,8 +124,8 @@ body {
 /*flip for player 1*/
 .flip-container {
     background-color: transparent;
-    width: 275px;
-    height: 375px;
+    width: 235px;
+    height: 335px;
 }
 
 .flip-main {
@@ -157,8 +157,8 @@ body {
 /*flip for player 2*/
 .flip-container-2{
     background-color: transparent;
-    width: 275px;
-    height: 375px;
+    width: 235px;
+    height: 335px;
 
 }
 
