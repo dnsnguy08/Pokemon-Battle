@@ -113,10 +113,12 @@ function getRandomPokemon(player) {
 
 // Function for removing fainted pokemon from player hands
 function checkPlayerCards(hand, player) {
+  console.log(getPokemon)
   if (player === 1) {
     if (hand[diceResult1-1] === undefined) {
       // let indexString = getPokemon.toString(); // assign pokemon number to a string
-      let index = hand.indexOf(getPokemon); // get the index of the pokemon number string
+      let index = hand.indexOf(getPokemon); // get the index of the pokemon number strin
+      console.log(index)
       hand.splice(index, 1); // remove the pokemon's index from player hand
     } else {
       hand.splice((diceResult1-1),1);
@@ -199,7 +201,8 @@ startBattle.addEventListener("click",function(){
   var attack1 = parseInt(document.getElementById("attack1").textContent);
   var attack2 = parseInt(document.getElementById("attack2").textContent);
   startBattle.style.display = 'none';
-  while (battleON) {
+  while (player1Hand.length >0 && player2Hand.length>0){
+    console.log(player1Hand.length, player2Hand.length)
     if (playerOneTurn === true) { // player 1 pokemon attacks first if true
         hp2 -= attack1;
         playerOneTurn = false; //reset opponent turn to false after an attack
