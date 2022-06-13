@@ -60,7 +60,7 @@ body {
     /* placeholders to see sizing, positioning & visualization */
     box-shadow: 80px 80px 80px 80px white inset, 80px 80px 80px 80px rgba(0, 0, 0, .4);
     font-weight: 900;
-    width: 550px;
+    /* width: 550px; */
     /* box-shadow: inset -4px -4px #adafbc; */
     /* position:relative; left: 345px; top: 5x; */
 }
@@ -76,13 +76,12 @@ body {
     display: flex;
     text-align: center;
     justify-content: center;
-   
 
 }
 
 
 #currentCards {
-    width: 550px;
+    /* width: 550px; */
 }
 
 #player1Card {
