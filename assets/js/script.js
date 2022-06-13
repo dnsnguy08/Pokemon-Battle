@@ -13,7 +13,6 @@ var battleON = true; // Bool indicating battle round has been triggered
 var playerOneTurn = false; // Bool variables to determine priority of player turns
 var playerTwoTurn = false; //
 var getPokemon; // get random pokemon is dice roll index is undefined for player hand
-var flipCard = document.querySelector("flipCard");
 
 //Local storage for winners.
 const storageInput = document.querySelector('.storage');
@@ -147,7 +146,6 @@ function getRandomPokemon(player) {
 function checkPlayerCards(hand, player) {
   if (player === 1) {
     if (hand[diceResult1-1] === undefined) {
-      // let indexString = getPokemon.toString(); // assign pokemon number to a string
       let index = hand.indexOf(getPokemon); // get the index of the pokemon number strin
       hand.splice(index, 1); // remove the pokemon's index from player hand
     } else {
@@ -156,7 +154,6 @@ function checkPlayerCards(hand, player) {
   }
     if (player === 2) {
       if (hand[diceResult2-1] === undefined) {
-        // let indexString = getPokemon.toString(); // assign pokemon number to a string
         let index = hand.indexOf(getPokemon); // get the index of the pokemon number string
         hand.splice(index, 1); // remove the pokemon's index from player hand
       } else {
@@ -197,12 +194,6 @@ selectPokemon1.addEventListener("click",function(){
     }
   }
 );
-
-// $(".flipCard").addClass("flipContainer");
-// $(document).on("click", ".flipContainer",function(){
-//   $(this).toggleClass()
-// })
-
 
 // Player 2 roll dice and summon pokemon from deck
 var selectPokemon2 = document.querySelector("#rollDice2");
