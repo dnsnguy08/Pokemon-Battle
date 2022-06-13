@@ -35,6 +35,11 @@ Collaborate with fellow developers to build a front-end application that is inte
     WHEN the pokemon battle
     THEN the pokemon shake to visualize a hit
     WHEN a pokemon faints for a player
+    THEN the pokemon HP displays 0 and the card’s background color turns red and the player is presented with the Roll DIce button to summon another random pokemon
+    WHEN a player’s hand reaches 0
+    THEN the winning player is highlighted and a form for  player name is displayed
+    WHEN a winner enters their name
+    THEN the names are stores into localStorage and persists on the page
 
 ### Screenshot
 
