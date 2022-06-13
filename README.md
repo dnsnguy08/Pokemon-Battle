@@ -7,7 +7,7 @@
   - [User Story](#user-story)
   - [Acceptance Criteria](#acceptance-criteria)
   - [Links](#links)
-- [My process](#my-process)
+- [Process](#process)
   - [Built with](#built-with)
   - [What was learned](#what-i-learned)
 
