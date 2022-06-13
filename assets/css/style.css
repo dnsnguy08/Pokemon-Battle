@@ -38,7 +38,7 @@ body {
     color: black;
     font-weight: 900px;
     text-align: center;
-    position:relative; left: 230px; top: -220px;
+    /* position:relative; left: 230px; top: -220px; */
 }
 
 #scores {
@@ -62,7 +62,7 @@ body {
     font-weight: 900;
     width: 550px;
     /* box-shadow: inset -4px -4px #adafbc; */
-    position:relative; left: 345px; top: 5x;
+    /* position:relative; left: 345px; top: 5x; */
 }
 
 #battleStation h2 {
