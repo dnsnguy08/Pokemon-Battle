@@ -42,8 +42,8 @@ Collaborate with fellow developers to build a front-end application that is inte
 
 ### Links
 
-[Github URL here](https://github.com/dnsnguy08/Pokemon-Battle)
-[Live webpage URL]()
+- [Github URL here](https://github.com/dnsnguy08/Pokemon-Battle)
+- [Live webpage URL]()
 
 ## Process
 
