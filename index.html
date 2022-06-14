@@ -43,14 +43,15 @@
           <ol id="past-winners"></ol>
           <p class="text"></p>
           <div class="container">
-            <input class="storage" type="text">
+            <input class="storage" id="input" type="text">
             <button class="button" id="save">Save</button>
           </div>
         </div>
       </div>
     </div>
+    <div class="column"></div>
     <!-- Battle Station -->
-    <div class="column is-two-fifths is-offset-2 is-mobile" id="battleStation">
+    <div class="column is-two-fifths is-offset-1 mx-6 is-mobile" id="battleStation">
       <div class="columns" id="currentPlayer">
         <div class="column" id="player1">
           <h2>Player 1</h2>
@@ -152,7 +153,7 @@
         </div>
       </div>
       <div class="columns">
-        <div class="columns mt-2" id="player2Deck">
+        <div class="columns mt-2 is-2-third is-pulled-right" id="player2Deck">
           <div class="column">
             <div class="card"><img id="pic20" src="assets/images/cardback.png"></div>
           </div>
@@ -175,9 +176,8 @@
       </div>
     </div>
     <!---load deck battle button-->
-    <div class="column is-one-fifth mx-6" id="generateDeck">
-      <div class="column">
-      <button type="button" class="nes-btn">Get Your Decks</button></div>
+    <div class="column is-one-third is-pulled-left" id="generateDeck">
+      <button type="button" class="nes-btn">Get Your Decks</button>
     </div>
 
   </div>

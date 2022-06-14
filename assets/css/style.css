@@ -95,12 +95,6 @@ p {
 
 }
 
-/*flip for player 1*/
-.flipContainer1 {
-    background-color: transparent;
-    width: 200px;
-}
-
 .flipMain1 {
     transition: transform 0.6s;
     transform-style: preserve-3d;
@@ -112,12 +106,15 @@ p {
     transform: rotateY(180deg);
 }
 
-
-
+/*flip for player 1*/
+.flipContainer1 {
+    background-color: transparent;
+    width: 200px;
+}
 /* flip for player 2 */
 .flipContainer2 {
     background-color: transparent;
-    width: 200px;
+    max-width: 200px;
 }
 
 .flipMain2 {
@@ -130,12 +127,12 @@ p {
 }
 
 .flipTop1 {
-    backface-visibility: hidden;
+    /* backface-visibility: hidden; */
     position: absolute;
 }
 
 .flipTop2 {
-    backface-visibility: hidden;
+    /* backface-visibility: hidden; */
     position: absolute;
 }
 
@@ -153,6 +150,9 @@ p {
 .container {
     display: none;
 }
+/* #input {
+    max-width:250px;
+} */
 
 #player1Winner {
     display: none;
