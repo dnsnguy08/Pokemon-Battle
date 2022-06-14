@@ -118,7 +118,6 @@ p {
 .flipContainer2 {
     background-color: transparent;
     width: 200px;
-
 }
 
 .flipMain2 {
@@ -165,4 +164,8 @@ p {
 
 #playerDecks {
     margin:100px;
+}
+.card {
+    border:solid;
+    border-color:black;
 }
