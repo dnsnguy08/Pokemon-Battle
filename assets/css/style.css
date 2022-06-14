@@ -55,6 +55,8 @@ body {
     box-shadow: 80px 80px 80px 80px white inset, 80px 80px 80px 80px rgba(0, 0, 0, .4);
     font-weight: 900;
     width: 550px;
+    border:solid;
+    border-width:5px;
     /* box-shadow: inset -4px -4px #adafbc; */
     /* position:relative; left: 345px; top: 5x; */
 }
