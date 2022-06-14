@@ -13,9 +13,6 @@ var battleON = true; // Bool indicating battle round has been triggered
 var playerOneTurn = false; // Bool variables to determine priority of player turns
 var playerTwoTurn = false; //
 var getPokemon; // get random pokemon is dice roll index is undefined for player hand
-var flipCard = document.querySelector("flipCard");
-// activeCardOne.style.display = "none";
-// activeCardTwo.style.display = "none";
 
 //Local storage for winners.
 const storageInput = document.querySelector('.storage');
@@ -147,13 +144,9 @@ function getRandomPokemon(player) {
 
 // Function for removing fainted pokemon from player hands
 function checkPlayerCards(hand, player) {
-  console.log(getPokemon)
-  console.log(hand);
   if (player === 1) {
     if (hand[diceResult1-1] === undefined) {
-      // let indexString = getPokemon.toString(); // assign pokemon number to a string
       let index = hand.indexOf(getPokemon); // get the index of the pokemon number strin
-      console.log(index)
       hand.splice(index, 1); // remove the pokemon's index from player hand
     } else {
       hand.splice((diceResult1-1),1);
@@ -161,7 +154,6 @@ function checkPlayerCards(hand, player) {
   }
     if (player === 2) {
       if (hand[diceResult2-1] === undefined) {
-        // let indexString = getPokemon.toString(); // assign pokemon number to a string
         let index = hand.indexOf(getPokemon); // get the index of the pokemon number string
         hand.splice(index, 1); // remove the pokemon's index from player hand
       } else {
@@ -186,33 +178,22 @@ generateDeckEl.addEventListener("click",function(){
 var selectPokemon1 = document.querySelector("#rollDice1");
 var container = document.querySelector('.container');
 selectPokemon1.addEventListener("click",function(){
-  // btlCardback1.style.display = 'none';
-  // // btlCardback2.style.display = 'none';
-  // activeCardOne.style.display = 'block';
-  // // activeCardTwo.style.display = 'block';
   if (player1Hand.length !== 0) {
   playerOneTurn = true; // if player dice button is clicked set their next turn as priority
   selectPokemon1.style.display = 'none'; // hide dice roll button after clicking on it
   activeCardOne.style.backgroundColor = "yellow";
 
   getRandomPokemon(player1);
-  $("#flip-card-1").addClass("flip-container");
+  $("#flip-card-1").addClass("flip-container"); // Flip card to reveal pokemon and stats
   startBattle.style.display = 'block';
   }
-  if (player1Hand.length === 0){
+  if (player1Hand.length === 0){ // display winner when hand is out of cards
     container.style.display = 'block';
-    console.log('Player 2 has won!');
     Player2winner.style.display="block";
     hideStatPlayer2.style.display ="none";
     }
   }
 );
-
-$(".flipCard").addClass("flipContainer");
-$(document).on("click", ".flipContainer",function(){
-  $(this).toggleClass()
-})
-
 
 // Player 2 roll dice and summon pokemon from deck
 var selectPokemon2 = document.querySelector("#rollDice2");
@@ -222,12 +203,11 @@ selectPokemon2.addEventListener("click",function(){
   selectPokemon2.style.display = 'none'; // hide dice roll button after clicking on it
   activeCardTwo.style.backgroundColor = "yellow";
   getRandomPokemon(player2);
-  $("#flip-card-2").addClass("flip-container-2");
+  $("#flip-card-2").addClass("flip-container-2"); // Flip card to reveal pokemon and stats
   startBattle.style.display = 'block';
   }
-  if (player2Hand.length === 0){
+  if (player2Hand.length === 0){ // display winner when hand is out of cards
     container.style.display = 'block';
-    console.log('Player 1 has won!');
     Player1winner.style.display="block";
     hideStatPlayer1.style.display ="none";
     }
@@ -242,70 +222,66 @@ startBattle.addEventListener("click",function(){
   var attack1 = parseInt(document.getElementById("attack1").textContent);
   var attack2 = parseInt(document.getElementById("attack2").textContent);
   startBattle.style.display = 'none';
-  // Player1winner.style.display ="none";
-  // hideStatPlayer1.style.display="block";
-  // Player2winner.style.display="none";
-  // hideStatPlayer2.style.display="block";
-  while (player1Hand.length > 0 && player2Hand.length > 0){
-    console.log(player1Hand.length, player2Hand.length)
-    if (playerOneTurn === true) { // player 1 pokemon attacks first if true
-        hp2 -= attack1;
-        playerOneTurn = false; //reset opponent turn to false after an attack
-        var hp2Text = document.getElementById("hp2");
-        hp2Text.textContent = hp2.toString();
-        $('#player2Card').shake() // shake card when attacked
-        if (hp2 <= 0){
-          hp2Text.textContent = '0';
-          activeCardTwo.style.backgroundColor = "red";
-          // Player1winner.style.display ="block";
-          // hideStatPlayer1.style.display="none";
-          checkPlayerCards(player2Hand, 2); // check player deck and remove fainted pokemon
-          selectPokemon2.style.display = 'block';
-          break;
-        }
 
-        hp1 -= attack2;
-        playerTwoTurn = false; //reset opponent turn to false after an attack
-        var hp1Text = document.getElementById("hp1");
-        hp1Text.textContent = hp1.toString();
-        $('#player1Card').shake() // shake card when attacked
-        if (hp1 <= 0){
-          hp1Text.textContent = '0';
-          activeCardOne.style.backgroundColor = "red";
-          // Player2winner.style.display ="block";
-          // hideStatPlayer2.style.display="none";
-          checkPlayerCards(player1Hand, 1); // check player deck and remove fainted pokemon
-          selectPokemon1.style.display = 'block';
-         break;
-        }
+  while (player1Hand.length > 0 && player2Hand.length > 0){
+    if (playerOneTurn === true) { // player 1 pokemon attacks first if true
+      hp2 -= attack1;
+      playerOneTurn = false; //reset player turn to false after an attack
+      playerTwoTurn = true;
+      var hp2Text = document.getElementById("hp2");
+      hp2Text.textContent = hp2.toString();
+      $('#player2Card').shake() // shake card when attacked
+      if (hp2 <= 0){
+        hp2Text.textContent = '0';
+        activeCardTwo.style.backgroundColor = "red";
+        checkPlayerCards(player2Hand, 2); // check player deck and remove fainted pokemon
+        selectPokemon2.style.display = 'block';
+        break;
+      }
+      hp1 -= attack2;
+      playerTwoTurn = false; //reset player turn to false after an attack
+      playerOneTurn = true;
+      var hp1Text = document.getElementById("hp1");
+      hp1Text.textContent = hp1.toString();
+      $('#player1Card').shake() // shake card when attacked
+      if (hp1 <= 0){
+        hp1Text.textContent = '0';
+        activeCardOne.style.backgroundColor = "red";
+        checkPlayerCards(player1Hand, 1); // check player deck and remove fainted pokemon
+        selectPokemon1.style.display = 'block';
+        break;
+      }
     }
+
     if (playerTwoTurn === true) { // player 2 pokemon attacks first if true
-        hp1 -= attack2;
-        playerTwoTurn = false; //reset opponent turn to false after an attack
-        var hp1Text = document.getElementById("hp1");
-        hp1Text.textContent = hp1.toString();
-        $('#player1Card').shake() // shake card when attacked
-        if (hp1 <= 0){
-          hp1Text.textContent = '0';
-          activeCardOne.style.backgroundColor = "red";
-          checkPlayerCards(player1Hand, 1); // check player deck and remove fainted pokemon
-          selectPokemon1.style.display = 'block';
-          break;
+      hp1 -= attack2;
+      playerTwoTurn = false; //reset player turn to false after an attack
+      playerOneTurn = true;
+      var hp1Text = document.getElementById("hp1");
+      hp1Text.textContent = hp1.toString();
+      $('#player1Card').shake() // shake card when attacked
+      if (hp1 <= 0){
+        hp1Text.textContent = '0';
+        activeCardOne.style.backgroundColor = "red";
+        checkPlayerCards(player1Hand, 1); // check player deck and remove fainted pokemon
+        selectPokemon1.style.display = 'block';
+        break;
+    }
+      hp2 -= attack1;
+      playerOneTurn = false; //reset player turn to false after an attack
+      playerTwoTurn = true;
+      var hp2Text = document.getElementById("hp2");
+      hp2Text.textContent = hp2.toString();
+      $('#player2Card').shake() // shake card when attacked
+      if (hp2 <= 0){
+        hp2Text.textContent = '0';
+        activeCardTwo.style.backgroundColor = "red";
+        checkPlayerCards(player2Hand, 2); // check player deck and remove fainted pokemon
+        selectPokemon2.style.display = 'block';
+        break;
       }
-        hp2 -= attack1;
-        playerOneTurn = false; //reset opponent turn to false after an attack
-        var hp2Text = document.getElementById("hp2");
-        hp2Text.textContent = hp2.toString();
-        $('#player2Card').shake() // shake card when attacked
-        if (hp2 <= 0){
-          hp2Text.textContent = '0';
-          activeCardTwo.style.backgroundColor = "red";
-          checkPlayerCards(player2Hand, 2); // check player deck and remove fainted pokemon
-          selectPokemon2.style.display = 'block';
-          break;
-        }
-      }
+    }
+  startBattle.style.display = 'block';
+  break;
   }
 });
-// To do list
-//Clean up variable names
