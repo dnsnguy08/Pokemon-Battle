@@ -70,8 +70,6 @@ body {
     display: flex;
     text-align: center;
     justify-content: center;
-   
-
 }
 
 
@@ -189,10 +187,10 @@ body {
 .container{
     display: none;
 } 
-#Player1Winner{
+#player1Winner{
     display:none;
 }
-#Player2Winner{
+#player2Winner{
     display:none;
 }
 @media only screen and (min-width: 1200px) {
