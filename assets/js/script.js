@@ -43,8 +43,8 @@ allWinners.forEach(winner => {
 })
 }
 
-var Player1winner = document.getElementById("Player1winner");
-var Player2winner = document.getElementById("Player2winner");
+var Player1Winner = document.getElementById("Player1Winner");
+var Player2Winner = document.getElementById("Player2Winner");
 var hideStatPlayer1 = document.getElementById("hideStatPlayer1");
 var hideStatPlayer2 = document.getElementById("hideStatPlayer2");
 // Function for randomizing player1 and player 2 decks to choose Pokemon from
@@ -189,7 +189,7 @@ selectPokemon1.addEventListener("click",function(){
   }
   if (player1Hand.length === 0){ // display winner when hand is out of cards
     container.style.display = 'block';
-    Player2winner.style.display="block";
+    Player2Winner.style.display="block";
     hideStatPlayer2.style.display ="none";
     }
   }
@@ -208,7 +208,7 @@ selectPokemon2.addEventListener("click",function(){
   }
   if (player2Hand.length === 0){ // display winner when hand is out of cards
     container.style.display = 'block';
-    Player1winner.style.display="block";
+    Player1Winner.style.display="block";
     hideStatPlayer1.style.display ="none";
     }
   }
