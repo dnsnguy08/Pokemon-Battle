@@ -195,8 +195,9 @@ selectPokemon1.addEventListener("click",function(){
   }
   if (player1Hand.length === 0){ // display winner when hand is out of cards
     container.style.display = 'block';
-    player2Winner.style.display="block";
-    hideStatplayer2.style.display ="none";
+    player2Winner.style.display = "block";
+    hideStatplayer2.style.display = "none";
+    selectPokemon1.style.display = "none";
     }
   }
 );
@@ -219,8 +220,9 @@ selectPokemon2.addEventListener("click",function(){
   }
   if (player2Hand.length === 0){ // display winner when hand is out of cards
     container.style.display = 'block';
-    player1Winner.style.display="block";
-    hideStatplayer1.style.display ="none";
+    player1Winner.style.display = "block";
+    hideStatplayer1.style.display = "none";
+    selectPokemon2.style.display = "none";
     }
   }
 );
