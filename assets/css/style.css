@@ -155,13 +155,13 @@ p {
     display: none;
 }
 
-/* #player1Winner {
+#player1Winner {
     display: none;
 }
 
 #player2Winner {
     display: none;
-} */
+}
 
 #playerDecks {
     margin:100px;
