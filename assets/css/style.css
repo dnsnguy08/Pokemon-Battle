@@ -130,12 +130,12 @@ p {
     transform: rotateY(180deg);
 }
 
-.flip-top {
+.flipTop1 {
     backface-visibility: hidden;
     position: absolute;
 }
 
-.flip-top-2 {
+.flipTop2 {
     backface-visibility: hidden;
     position: absolute;
 }
