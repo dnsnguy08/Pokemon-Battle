@@ -39,14 +39,14 @@ window.onload = function (){
 allWinners.forEach(winner => {
   let newListItem = document.createElement("li");
   newListItem.innerHTML=winner;
-  document.querySelector("#past-winners").appendChild(newListItem);
+  document.querySelector("#past-Winners").appendChild(newListItem);
 })
 }
 
-var Player1winner = document.getElementById("Player1winner");
-var Player2winner = document.getElementById("Player2winner");
-var hideStatPlayer1 = document.getElementById("hideStatPlayer1");
-var hideStatPlayer2 = document.getElementById("hideStatPlayer2");
+var player1Winner = document.getElementById("Player1winner");
+var player2Winner = document.getElementById("player2Winner");
+var hideStatplayer1 = document.getElementById("hideStatplayer1");
+var hideStatplayer2 = document.getElementById("hideStatplayer2");
 // Function for randomizing player1 and player 2 decks to choose Pokemon from
 function generateHands() {
   for (let i = 0; i < 6; i++) {

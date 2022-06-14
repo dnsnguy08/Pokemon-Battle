@@ -32,15 +32,18 @@
       <img class="image is-pulled-right is-flex-shrink-2" id="pokeBall" src="assets/images/pokeball.png">
     </div>
   </div>
-  <!-- For scores & battle station container - justifies row -->
-  <div class="columns mx-auto is-vcentered p-3 mx-3 mt-2">
 
-    <!---Scores + Winner tracking container -->
+
+
+  <!-- For winners & battle station container - justifies row -->
+  <div class="columns mx-auto is-vcentered p-3 mx-3 mt-2" id="winnersBattlestation">
+
+    <!---Winner tracking container -->
     <div class="column is-one-fifth is-offset-2 is-mobile">
       <div class="columns">
         <div class="column" id="winners">
           <h2>Winners</h2>
-          <ol id="past-winners"></ol>
+          <ol id="past-Winners"></ol>
           <p class="text"></p>
           <div class="container">
             <input class="storage" type="text">
@@ -70,8 +73,8 @@
               </div>
               <div class="flip-bottom">
                 <div class="card" id="player1Card">
-                  <span class="Player1winner" id="Player1winner">Winner</span>
-                  <div class="hideStats-1" id="hideStatPlayer1">
+                  <span class="player1Winner" id="Player1winner">Winner</span>
+                  <div class="hideStats-1" id="hideStatplayer1">
                     <p>name: <span id="name1"></span></p>
                     <p>type: <span id="types1"></span></p>
                     <p>hp: <span id="hp1"></span></p>
@@ -92,8 +95,8 @@
               </div>
               <div class="flip-bottom-2">
                 <div class="card" id="player2Card">
-                  <span class="Player2winner" id="Player2winner">Winner</span>
-                  <div class="hideStats-2" id="hideStatPlayer2">
+                  <span class="player2Winner" id="player2Winner">Winner</span>
+                  <div class="hideStats-2" id="hideStatplayer2">
                     <p>name: <span id="name2"></span></p>
                     <p>type: <span id="types2"></span></p>
                     <p>hp: <span id="hp2"></span></p>
