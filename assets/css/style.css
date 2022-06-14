@@ -204,10 +204,10 @@ body {
 .container{
     display: none;
 } 
-.Player1winner{
+#Player1Winner{
     display:none;
 }
-.Player2winner{
+#Player2Winner{
     display:none;
 }
 @media only screen and (min-width: 1200px) {
