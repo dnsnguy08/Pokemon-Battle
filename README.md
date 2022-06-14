@@ -35,11 +35,11 @@ Collaborate with fellow developers to build a front-end application that is inte
     WHEN the pokemon battle
     THEN the pokemon shake to visualize a hit
     WHEN a pokemon faints for a player
-    THEN the pokemon HP displays 0 and the card’s background color turns red and the player is presented with the Roll DIce button to summon another random pokemon
+    THEN then the card styling changes
     WHEN a player’s hand reaches 0
     THEN the winning player is highlighted and a form for  player name is displayed
     WHEN a winner enters their name
-    THEN the names are stores into localStorage and persists on the page
+    THEN the names are stored into localStorage and persists on the page
 
 ### Screenshot
 
@@ -60,5 +60,5 @@ Collaborate with fellow developers to build a front-end application that is inte
 - Bulma
 
 ### What was learned
-The team was able to work colloboratively in an AGILE scrum workflow and work towards the goal in a sprint (2-week) timeline. Front-end and back-end skills were used to develop dynamic features on the page; such as storing local data, card animations, and event listeners. 
+The team was able to work colloboratively in an AGILE scrum setting and work towards the goal in a sprint (2-week) timeline. Front-end and back-end skills were used to develop dynamic features on the page; such as storing local data, card animations, and event listeners. 
 We were able to successfully incorporate two server-side APIs to build a two-player game.
