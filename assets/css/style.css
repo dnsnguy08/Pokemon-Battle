@@ -4,22 +4,23 @@ body {
     background-size: cover;
 }
 
-
 #titleBar {
     display: flex;
     box-shadow: 80px 80px 80px 80px rgba(253, 253, 253, .4) inset, 80px 80px 80px 80px rgba(253, 253, 253, .4);
-    height: 15%;
+    max-height:100px;
     padding-left: 25px;
     padding-right: 25px;
     padding-top: 20px;
 }
 
 #pika {
-    height: 100%;
+   max-height: 75px;
 }
-
+#title {
+    max-height:150px;
+}
 #pokeBall {
-    height: 65%;
+    max-height:45px;
     box-shadow: 3px 15px 22px 2px rgba(0, 0, 0, 0.5);
     border-radius: 80px;
 }
@@ -29,33 +30,14 @@ body {
     color: black;
     font-weight: 900px;
     text-align: center;
-    /* position:relative; left: 230px; top: -220px; */
-}
-
-#scores {
-    /* placeholders to see sizing, positioning & visualization */
     border: solid;
-    border-width: 5px;
-    border-color: rgb(255, 255, 255);
-
-}
-
-#winners {
-    /* placeholders to see sizing, positioning & visualization */
-    border: solid;
-    border-width: 5px;
-    /* border-color:rgb(255, 255, 255); */
+    border-color: black;
 }
 
 #battleStation {
-    /* placeholders to see sizing, positioning & visualization */
     box-shadow: 80px 80px 80px 80px white inset, 80px 80px 80px 80px rgba(0, 0, 0, .4);
     font-weight: 900;
-    /* width: 550px; */
     border: solid;
-    border-width: 5px;
-    /* box-shadow: inset -4px -4px #adafbc; */
-    /* position:relative; left: 345px; top: 5x; */
 }
 
 #battleStation h2 {
@@ -63,6 +45,14 @@ body {
     font-size: 18px;
     text-align: center;
 }
+
+p {
+    font-size: small;
+}
+
+/* #img2 {}
+
+#img1 {} */
 
 #currentPlayer {
     /* placeholders to see sizing, positioning & visualization */
@@ -74,6 +64,7 @@ body {
 
 #player1Card {
     background-color: yellow;
+    border: solid;
     text-align: center;
     height: 280px;
     width: 200px;
@@ -81,6 +72,7 @@ body {
 
 #player2Card {
     background-color: yellow;
+    border: solid;
     text-align: center;
     height: 280px;
     width: 200px;
@@ -95,91 +87,67 @@ body {
 .btlCardback1 {
     height: 280px;
     width: 200px;
-    margin-left: -15px;
-    padding: 5px;
 }
 
 .btlCardback2 {
     height: 280px;
     width: 200px;
-    margin-right: -15px;
-    padding: 5px;
+
 }
 
 /*flip for player 1*/
 .flip-container {
     background-color: transparent;
-    width: 235px;
-    height: 335px;
+    width: 200px;
 }
 
 .flip-main {
     transition: transform 0.6s;
     transform-style: preserve-3d;
-    position: relative;
     width: 100%;
     height: 100%;
 }
 
-/*comment out the hover effect to turn off hover*/
 .flip-container .flip-main {
     transform: rotateY(180deg);
 }
 
-.flip-top {
-    backface-visibility: hidden;
-    position: absolute;
-    z-index: 2;
-}
 
-.flip-bottom {
-    transform: rotateY(180deg);
-    z-index: 2;
-    position: absolute;
-    backface-visibility: hidden;
-}
 
-/*flip for player 2*/
+/* flip for player 2 */
 .flip-container-2 {
     background-color: transparent;
-    width: 235px;
-    height: 335px;
+    width: 200px;
 
 }
 
 .flip-main-2 {
     transition: transform 0.6s;
     transform-style: preserve-3d;
-    position: relative;
-    width: 100%;
-    height: 100%;
 }
 
-/*comment out the hover effect to turn off hover*/
 .flip-container-2 .flip-main-2 {
     transform: rotateY(180deg);
+}
+
+.flip-top {
+    backface-visibility: hidden;
+    position: absolute;
 }
 
 .flip-top-2 {
     backface-visibility: hidden;
     position: absolute;
-    z-index: 2;
+}
+
+.flip-bottom {
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
 }
 
 .flip-bottom-2 {
     transform: rotateY(180deg);
-    position: relative;
     backface-visibility: hidden;
-
-}
-
-#player1 {
-    text-align: center;
-
-}
-
-#player2 {
-    text-align: center;
 
 }
 
@@ -187,10 +155,14 @@ body {
     display: none;
 }
 
-#player1Winner {
+/* #player1Winner {
     display: none;
 }
 
 #player2Winner {
     display: none;
+} */
+
+#playerDecks {
+    margin:100px;
 }

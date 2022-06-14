@@ -8,7 +8,9 @@
   <link rel="stylesheet" href="assets/css/reset.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Ms+Madi&family=Press+Start+2P&family=Radio+Canada:wght@300&family=Raleway:ital,wght@1,300&family=Tapestry&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ms+Madi&family=Press+Start+2P&family=Radio+Canada:wght@300&family=Raleway:ital,wght@1,300&family=Tapestry&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
@@ -30,21 +32,21 @@
       <img class="image is-pulled-right is-flex-shrink-2" id="pokeBall" src="assets/images/pokeball.png">
     </div>
   </div>
-  <!-- For scores & battle station container - justifies row -->
+  <!-- For winners & battle station container - justifies row -->
   <div class="columns mx-auto is-vcentered p-3 mx-3 mt-2">
 
-    <!---Scores + Winner tracking container -->
+    <!--- Winner tracking container -->
     <div class="column is-one-fifth is-offset-2 is-mobile">
-      <div class="columns" >
+      <div class="columns">
         <div class="column" id="winners">
           <h2>Winners</h2>
           <ol id="past-winners"></ol>
           <p class="text"></p>
-           <div class="container">
+          <div class="container">
             <input class="storage" type="text">
             <button class="button">Save</button>
+          </div>
         </div>
-      </div>
       </div>
     </div>
     <!-- Battle Station -->
@@ -58,64 +60,65 @@
         </div>
       </div>
       <div class="columns is-mobile" id="currentCards">
-        <div class="column">
-        <div id="flip-card-1">
-          <div class="flip-main">
-            <div class="flip-top">
-              <img class="btlCardback1" src="assets/images/cardback.png" alt="">
-            </div>
-            <div class="flip-bottom">
-              <div class="card" id="player1Card">
-                <span id="player1Winner">Winner</span>
-                <div id ="hideStatplayer1">
-                <p>name: <span id="name1"></span></p>
-                <p>type: <span id="types1"></span></p>
-                <p>hp: <span id="hp1"></span></p>
-                <p>attack: <span id="attack1"></span></p>
-               </div>
-                <img src="" id="img1" alt="Picture of a Pokemon">
+        <div class="column is-half">
+          <div id="flip-card-1">
+            <div class="flip-main">
+              <div class="flip-top">
+                <img class="btlCardback1" src="assets/images/cardback.png" alt="">
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="column">
-        <div id="flip-card-2">
-          <div class="flip-main-2">
-            <div class="flip-top-2">
-              <img class="btlCardback2" src="assets/images/cardback.png" alt="">
-            </div>
-            <div class="flip-bottom-2">
-              <div class="card" id="player2Card">
-                <span id="player2Winner">Winner</span>
-                <div id ="hideStatplayer2">
-                <p>name: <span id="name2"></span></p>
-                <p>type: <span id="types2"></span></p>
-                <p>hp: <span id="hp2"></span></p>
-                <p>attack: <span id="attack2"></span></p>
+              <div class="flip-bottom">
+                <div class="card" id="player1Card">
+                  <span id="player1Winner">Winner</span>
+                  <div id="hideStatplayer1">
+                    <p><span id="name1"></span></p>
+                    <p><span id="types1"></span></p>
+                    <p>HP <span id="hp1"></span></p>
+                    <p>Attack <span id="attack1"></span></p>
+                  </div>
+                  <img src="" id="img1" alt="Picture of a Pokemon">
                 </div>
-                <img src="" id="img2" alt="Picture of a Pokemon">
               </div>
             </div>
           </div>
         </div>
 
+        <div class="column is-half">
+          <div id="flip-card-2">
+            <div class="flip-main-2">
+              <div class="flip-top-2">
+                <img class="btlCardback2" src="assets/images/cardback.png" alt="">
+              </div>
+              <div class="flip-bottom-2">
+                <div class="card" id="player2Card">
+                  <span id="player2Winner">Winner</span>
+                  <div id="hideStatplayer2">
+                    <p><span id="name2"></span></p>
+                    <p><span id="types2"></span></p>
+                    <p>HP <span id="hp2"></span></p>
+                    <p>Attack <span id="attack2"></span></p>
+                  </div>
+                  <img src="" id="img2" alt="Picture of a Pokemon">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      
-      </div>
+
+
+
       <div class="columns is-vcentered m-2" id="gameButtons">
         <!---Roll Dice button-->
         <div class="column">
-        <button type="button" class="nes-btn" id="rollDice1" style="display:none;">Player 1: Roll Dice!</button>
-      </div>
+          <button type="button" class="nes-btn" id="rollDice1" style="display:none;">Player 1: Roll Dice!</button>
+        </div>
         <!---load start battle button-->
         <div class="column">
-        <button type="button" class="nes-btn" id="startBattle" style="display:none;">Start battle</button>
+          <button type="button" class="nes-btn" id="startBattle" style="display:none;">Start battle</button>
         </div>
         <!---Roll Dice button-->
         <div class="column">
-        <button type="button" class="nes-btn" id="rollDice2" style="display:none;">Player 2: Roll Dice!</button>
+          <button type="button" class="nes-btn" id="rollDice2" style="display:none;">Player 2: Roll Dice!</button>
         </div>
       </div>
 
@@ -173,7 +176,8 @@
     </div>
     <!---load deck battle button-->
     <div class="column is-one-fifth mx-6" id="generateDeck">
-      <button type="button" class="nes-btn">Get Your Decks</button>
+      <div class="column">
+      <button type="button" class="nes-btn">Get Your Decks</button></div>
     </div>
 
   </div>
@@ -182,4 +186,5 @@
   <script src="assets/js/shake.js"></script>
   <script src="assets/js/script.js"></script>
 </body>
+
 </html>
