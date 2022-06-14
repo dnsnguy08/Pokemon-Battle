@@ -57,7 +57,8 @@ Collaborate with fellow developers to build a front-end application that is inte
 - CSS
 - Javascript
 - JQuery
-- Bulma
+- [Bulma](https://bulma.io/documentation/)
+- [NES-style  CSS Framework](https://nostalgic-css.github.io/NES.css/)
 
 ### What was learned
 The team was able to work colloboratively in an AGILE scrum setting and work towards the goal in a sprint (2-week) timeline. Front-end and back-end skills were used to develop dynamic features on the page; such as storing local data, card animations, and event listeners. 
