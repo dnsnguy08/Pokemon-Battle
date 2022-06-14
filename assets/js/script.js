@@ -185,7 +185,7 @@ selectPokemon1.addEventListener("click",function(){
     activeCardOne.style.backgroundColor = "yellow";
 
     getRandomPokemon(player1);
-    $("#flip-card-1").addClass("flip-container"); // Flip card to reveal pokemon and stats
+    $("#flip-card-1").addClass("flipContainer1"); // Flip card to reveal pokemon and stats
     if (startCounter != 2){ // initiate the startBattle button only when both roll dice buttons are clicked at the start 
       startCounter += 1;
     }
@@ -210,7 +210,7 @@ selectPokemon2.addEventListener("click",function(){
     selectPokemon2.style.display = 'none'; // hide dice roll button after clicking on it
     activeCardTwo.style.backgroundColor = "yellow";
     getRandomPokemon(player2);
-    $("#flip-card-2").addClass("flip-container-2"); // Flip card to reveal pokemon and stats
+    $("#flip-card-2").addClass("flipContainer2"); // Flip card to reveal pokemon and stats
     if (startCounter != 2){ // initiate the startBattle button only when both roll dice buttons are clicked at the start
       startCounter += 1;
     }
