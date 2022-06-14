@@ -169,3 +169,6 @@ p {
     border:solid;
     border-color:black;
 }
+#save {
+    margin-top:10px;
+}
