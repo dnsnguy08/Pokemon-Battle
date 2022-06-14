@@ -17,12 +17,6 @@ body {
     padding-top: 20px;
 }
 
-/* .header {
-    display: flex;
-    max-width:150%;
-    height:150%;
-    justify-content: space-evenly;
-} */
 #pika {
     height: 100%;
 }
@@ -104,15 +98,6 @@ body {
     justify-content: space-between;
     border-width: 5px;
 }
-
-/* .hide{
-    visibility: hidden;
-    position: relative;
-}
-.hide:after{
-    visibility: visible;
-    position:absolute;
-} */
 
 .btlCardback1 {
     height: 280px;
