@@ -4,9 +4,9 @@ body {
     background-size: cover;
 }
 
-.column {
+/* .column {
     padding: 0px;
-}
+} */
 
 #titleBar {
     display: flex;
@@ -195,8 +195,3 @@ body {
 #player2Winner{
     display:none;
 }
-@media only screen and (min-width: 1200px) {
-    .column {
-        margin-left:-10px;
-    }
-  }
