@@ -1,7 +1,6 @@
 <!DOCTYPE html> 
 <html lang="en">
 <head>
-  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -36,9 +35,9 @@
 
 
   <!-- For winners & battle station container - justifies row -->
-  <div class="columns mx-auto is-vcentered p-3 mx-3 mt-2" id="winnersBattlestation">
+  <div class="columns is-vcentered" id="winnersBattlestation">
 
-    <!---Winner tracking container -->
+    <!---winner tracking container -->
     <div class="column is-one-fifth is-offset-2 is-mobile">
       <div class="columns">
         <div class="column" id="winners">
@@ -52,8 +51,9 @@
         </div>
       </div>
     </div>
+
     <!-- Battle Station -->
-    <div class="column is-two-fifths nes-container is-mobile is-rounded" id="battleStation">
+    <div class="column is-two-fifths is-offset-2 is-mobile is-rounded" id="battleStation">
       <div class="columns" id="currentPlayer">
         <div class="column" id="player1">
           <h2>Player 1</h2>
@@ -73,7 +73,7 @@
               </div>
               <div class="flip-bottom">
                 <div class="card" id="player1Card">
-                  <span class="player1Winner" id="Player1winner">Winner</span>
+                  <span class="player1Winner" id="player1winner">Winner</span>
                   <div class="hideStats-1" id="hideStatplayer1">
                     <p>name: <span id="name1"></span></p>
                     <p>type: <span id="types1"></span></p>
