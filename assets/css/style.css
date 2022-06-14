@@ -96,7 +96,7 @@ p {
 }
 
 /*flip for player 1*/
-.flip-container {
+.flipContainer1 {
     background-color: transparent;
     width: 200px;
 }
@@ -108,14 +108,14 @@ p {
     height: 100%;
 }
 
-.flip-container .flip-main {
+.flipContainer1 .flip-main {
     transform: rotateY(180deg);
 }
 
 
 
 /* flip for player 2 */
-.flip-container-2 {
+.flipContainer2 {
     background-color: transparent;
     width: 200px;
 
@@ -126,7 +126,7 @@ p {
     transform-style: preserve-3d;
 }
 
-.flip-container-2 .flip-main-2 {
+.flipContainer2 .flip-main-2 {
     transform: rotateY(180deg);
 }
 
