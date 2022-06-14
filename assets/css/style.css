@@ -165,10 +165,12 @@ p {
 #playerDecks {
     margin:100px;
 }
+
 .card {
     border:solid;
     border-color:black;
 }
+
 #save {
     margin-top:10px;
 }
