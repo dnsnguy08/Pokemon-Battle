@@ -13,6 +13,7 @@ var battleON = true; // Bool indicating battle round has been triggered
 var playerOneTurn = false; // Bool variables to determine priority of player turns
 var playerTwoTurn = false; //
 var getPokemon; // get random pokemon is dice roll index is undefined for player hand
+var startCounter = 0; // variable for showing start button at the beginning of the game
 
 //Local storage for winners.
 const storageInput = document.querySelector('.storage');
@@ -179,13 +180,18 @@ var selectPokemon1 = document.querySelector("#rollDice1");
 var container = document.querySelector('.container');
 selectPokemon1.addEventListener("click",function(){
   if (player1Hand.length !== 0) {
-  playerOneTurn = true; // if player dice button is clicked set their next turn as priority
-  selectPokemon1.style.display = 'none'; // hide dice roll button after clicking on it
-  activeCardOne.style.backgroundColor = "yellow";
+    playerOneTurn = true; // if player dice button is clicked set their next turn as priority
+    selectPokemon1.style.display = 'none'; // hide dice roll button after clicking on it
+    activeCardOne.style.backgroundColor = "yellow";
 
-  getRandomPokemon(player1);
-  $("#flip-card-1").addClass("flip-container"); // Flip card to reveal pokemon and stats
-  startBattle.style.display = 'block';
+    getRandomPokemon(player1);
+    $("#flip-card-1").addClass("flip-container"); // Flip card to reveal pokemon and stats
+    if (startCounter != 2){ // initiate the startBattle button only when both roll dice buttons are clicked at the start 
+      startCounter += 1;
+    }
+    if (startCounter === 2) {
+      startBattle.style.display = 'block';
+    }
   }
   if (player1Hand.length === 0){ // display winner when hand is out of cards
     container.style.display = 'block';
@@ -199,12 +205,17 @@ selectPokemon1.addEventListener("click",function(){
 var selectPokemon2 = document.querySelector("#rollDice2");
 selectPokemon2.addEventListener("click",function(){
   if (player2Hand.length !== 0) {
-  playerTwoTurn = true; // if player dice button is clicked set their next turn as priority
-  selectPokemon2.style.display = 'none'; // hide dice roll button after clicking on it
-  activeCardTwo.style.backgroundColor = "yellow";
-  getRandomPokemon(player2);
-  $("#flip-card-2").addClass("flip-container-2"); // Flip card to reveal pokemon and stats
-  startBattle.style.display = 'block';
+    playerTwoTurn = true; // if player dice button is clicked set their next turn as priority
+    selectPokemon2.style.display = 'none'; // hide dice roll button after clicking on it
+    activeCardTwo.style.backgroundColor = "yellow";
+    getRandomPokemon(player2);
+    $("#flip-card-2").addClass("flip-container-2"); // Flip card to reveal pokemon and stats
+    if (startCounter != 2){ // initiate the startBattle button only when both roll dice buttons are clicked at the start
+      startCounter += 1;
+    }
+    if (startCounter === 2) {
+      startBattle.style.display = 'block';
+    }
   }
   if (player2Hand.length === 0){ // display winner when hand is out of cards
     container.style.display = 'block';
