@@ -36,7 +36,9 @@ const saveToLocalStorage = () => {
 button.addEventListener('click',saveToLocalStorage);
 const allWinners = JSON.parse(localStorage.getItem("allWinners"));
 //list winner
-window.onload = function (){
+if(allWinners === null) {
+  console.log('waiting for winner')
+}else window.onload = function (){
 allWinners.forEach(winner => {
   let newListItem = document.createElement("li");
   newListItem.innerHTML=winner;
