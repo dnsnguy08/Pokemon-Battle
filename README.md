@@ -70,7 +70,7 @@ We were able to successfully incorporate two server-side APIs to build a two-pla
 ## License
 MIT License
 
-Copyright (c) [2022] [Dennis Nguyen] [Daniel Holloway] [Asha Chakre] [Michael Harris] [Lilian Kim]
+Copyright (c) [2022] [Dennis Nguyen](https://github.com/dnsnguy08), [Daniel Holloway](https://github.com/VendettiStudios), [Asha Chakre](https://github.com/ashachakre0906), [Michael Harris](https://github.com/Snufalufakis), [Lilian Kim](https://github.com/liliankim)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
